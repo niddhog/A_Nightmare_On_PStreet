@@ -4,15 +4,21 @@ using UnityEngine;
 
 public class LevelManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private int level;
     void Start()
     {
-        
+        level = 1;
     }
 
-    // Update is called once per frame
-    void Update()
+
+    public int GetLevel()
     {
-        
+        return level;
+    }
+
+
+    public void SetLevel(int l)
+    {
+        level = l;
     }
 }
