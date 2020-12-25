@@ -210,6 +210,7 @@ GameObject:
   - component: {fileID: 150981675}
   - component: {fileID: 150981676}
   - component: {fileID: 150981677}
+  - component: {fileID: 150981678}
   m_Layer: 0
   m_Name: GameHandler
   m_TagString: Untagged
@@ -320,6 +321,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64f65b1156c233546933b7afd246d9df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 0
+--- !u!114 &150981678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150981670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af075048c005a11418a407850e5e5fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bloodPrefab: {fileID: 3433382061587389460, guid: 37caf0bdb18e4594f91874e3602d482d,
+    type: 3}
 --- !u!1 &152006988
 GameObject:
   m_ObjectHideFlags: 0
@@ -6907,6 +6923,8 @@ GameObject:
   - component: {fileID: 1690411231}
   - component: {fileID: 1690411232}
   - component: {fileID: 1690411233}
+  - component: {fileID: 1690411234}
+  - component: {fileID: 1690411230}
   m_Layer: 0
   m_Name: Zombie
   m_TagString: Untagged
@@ -6922,12 +6940,24 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1690411228}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -134.7, y: 10.2, z: -2}
+  m_LocalPosition: {x: -136.99, y: 9.18, z: -2}
   m_LocalScale: {x: 10, y: 10, z: 1}
   m_Children: []
   m_Father: {fileID: 2146353582}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1690411230
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690411228}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69b2ee6e8eef7064ea8c640c453d7762, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &1690411231
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7018,6 +7048,32 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!61 &1690411234
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1690411228}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.05, y: -0.063556194}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 2.28, y: 2.82}
+    newSize: {x: 2.28, y: 2.82}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.929451, y: 2.324058}
+  m_EdgeRadius: 0
 --- !u!1 &1817280668
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ public class PlayerStats : MonoBehaviour
     public static float bulletAccuracy; //min: 0.8 max: 1
     public static int magazinSize; //thresholds: 19, 34, 44, 56, 67, 77, 92
     public static int health;
+    public static int bulletPower; //How much damage a projectile does
 
     public void Awake()
     {
@@ -21,6 +22,7 @@ public class PlayerStats : MonoBehaviour
         bulletAccuracy = 1;
         magazinSize = 92;
         health = 100;
+        bulletPower = 1;
     }
 
 }

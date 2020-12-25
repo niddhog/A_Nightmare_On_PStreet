@@ -8,8 +8,9 @@ public class BloodManager : MonoBehaviour
 
     public void SpawnBlood(GameObject target)
     {
-        Debug.Log(bloodPrefab);
-        GameObject blood = Instantiate(bloodPrefab, target.transform.position, Quaternion.identity);
+        Vector3 bloodVector = target.transform.position;
+        bloodVector.z = -10f;
+        GameObject blood = Instantiate(bloodPrefab, bloodVector, Quaternion.identity);
         blood.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>());
     }
 }

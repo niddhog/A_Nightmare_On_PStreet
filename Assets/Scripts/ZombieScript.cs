@@ -6,7 +6,7 @@ public class ZombieScript : MonoBehaviour
 {
     private BloodManager blood;
 
-    private float health;
+    private int health;
     private float speed;
     private float luck;
 
@@ -14,14 +14,17 @@ public class ZombieScript : MonoBehaviour
     void Start()
     {
         blood = GameObject.Find("GameHandler").GetComponent<BloodManager>();
-        health = 100f;
+        health = 10;
         speed = 50f;
     }
 
 
     void Update()
     {
-        
+        if(health <= 0)
+        {
+            gameObject.GetComponent<Animator>().SetBool("Dead", true);
+        }
     }
 
 
@@ -29,6 +32,7 @@ public class ZombieScript : MonoBehaviour
     {
         blood.SpawnBlood(collision.gameObject);
         Destroy(collision.gameObject);
+        health -= PlayerStats.bulletPower;
     }
 
 
@@ -44,7 +48,7 @@ public class ZombieScript : MonoBehaviour
     }
 
 
-    public void SetHealth(float h)
+    public void SetHealth(int h)
     {
         health = h;
     }
@@ -52,6 +56,6 @@ public class ZombieScript : MonoBehaviour
 
     public void SetSpeed(float s)
     {
-        health = s;
+        speed = s;
     }
 }
