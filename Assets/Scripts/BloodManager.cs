@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class BloodManager : MonoBehaviour
 {
-    public static GameObject bloodPrefab;
+    public GameObject bloodPrefab;
 
-    public static void SpawnBlood(GameObject target)
+    public void SpawnBlood(GameObject target)
     {
-        GameObject blood = Instantiate(bloodPrefab, target.GetComponent<Transform>().position, Quaternion.identity);
+        Debug.Log(bloodPrefab);
+        GameObject blood = Instantiate(bloodPrefab, target.transform.position, Quaternion.identity);
         blood.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>());
     }
 }

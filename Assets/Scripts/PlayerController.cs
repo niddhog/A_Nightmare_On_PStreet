@@ -125,7 +125,7 @@ public class PlayerController : MonoBehaviour
             fire.name = "gFire";
             fire.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>());
 
-            GameObject bullet = Instantiate(bulletPrefab, GameObject.Find("BulletContainer").GetComponent<Transform>().position, Quaternion.identity);
+            GameObject bullet = Instantiate(bulletPrefab, GameObject.Find("BulletContainer").transform.position, Quaternion.identity);
             bullet.name = "Bullet";
             bullet.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>());
             StartCoroutine(cameraController.ShakeCamera());

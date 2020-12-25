@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ZombieScript : MonoBehaviour
 {
+    private BloodManager blood;
+
     private float health;
     private float speed;
     private float luck;
@@ -11,6 +13,7 @@ public class ZombieScript : MonoBehaviour
 
     void Start()
     {
+        blood = GameObject.Find("GameHandler").GetComponent<BloodManager>();
         health = 100f;
         speed = 50f;
     }
@@ -24,6 +27,7 @@ public class ZombieScript : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        blood.SpawnBlood(collision.gameObject);
         Destroy(collision.gameObject);
     }
 
