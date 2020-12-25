@@ -15,7 +15,7 @@ public class ZombieScript : MonoBehaviour
     {
         blood = GameObject.Find("GameHandler").GetComponent<BloodManager>();
         health = 10;
-        speed = 50f;
+        speed = 10f;
     }
 
 
@@ -25,6 +25,10 @@ public class ZombieScript : MonoBehaviour
         {
             gameObject.GetComponent<Animator>().SetBool("Dead", true);
         }
+        if (gameObject.GetComponent<Animator>().GetBool("hasSpawned") && !(gameObject.GetComponent<Animator>().GetBool("Dead")))
+        {
+            transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
+        } 
     }
 
 
