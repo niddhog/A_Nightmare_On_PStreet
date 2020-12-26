@@ -13,7 +13,8 @@ public class ZombieScript : MonoBehaviour
     private float speed;
     private float attackPower;
     private float attackSpeed;
-    AudioManager audioManager;
+    private AudioManager audioManager;
+    private LevelManager levelManager;
 
 
     void Start()
@@ -22,7 +23,7 @@ public class ZombieScript : MonoBehaviour
         attackSpeed = 1; //Range [1,2]
         speed = Random.Range(20f, 50f);
         attackPower = Random.Range(10, 20);
-
+        levelManager = GameObject.Find("GameHandler").GetComponent<LevelManager>();
         audioManager = GameObject.Find("GameHandler").GetComponent<AudioManager>();
         wait = false;
         attackInMotion = false;
@@ -40,11 +41,18 @@ public class ZombieScript : MonoBehaviour
         }
         else
         {
-            if (health <= 0)
+            if (health == -99999)
             {
+
+            }
+            else if (health <= 0)
+            {
+                levelManager.ReduceZombie();
                 gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
                 animator.SetBool("Dead", true);
+                health = -99999;
             }
+
             if (animator.GetBool("hasSpawned") && !(animator.GetBool("Dead")) && !(animator.GetBool("Attack")) && !wait)
             {
                 transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
