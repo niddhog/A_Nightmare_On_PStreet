@@ -7,11 +7,13 @@ public class LevelManager : MonoBehaviour
 {
     private int level;
     private int phase;
+    private bool sequenceOngoing;
 
     public GameObject heroPrefab;
     public GameObject smallSkullPrefab;
     public GameObject bossSkullPrefab;
 
+    private SequenceManager sequenceManager;
     private EnemySpawnScript spawnScript;
     private GameObject heroIcon;
     private int zombieCounter;
@@ -29,6 +31,8 @@ public class LevelManager : MonoBehaviour
     void Awake()
 
     {
+        sequenceOngoing = false;
+        sequenceManager = GameObject.Find("GameHandler").GetComponent<SequenceManager>();
         spawnScript = GameObject.Find("GameHandler").GetComponent<EnemySpawnScript>();
         stepList = new List<float>();
         levelInProgress = false;
@@ -65,7 +69,6 @@ public class LevelManager : MonoBehaviour
         {
             zombieCounter = 0;
         }
-        Debug.Log("Z Count: " + zombieCounter);
         MoveHeroIcon();
     }
 
@@ -85,7 +88,7 @@ public class LevelManager : MonoBehaviour
         spawnScript.UnPause();
         if (level == 1)
         {
-            zombieCounter = 2;
+            zombieCounter = 3;
             maxEnemies = zombieCounter;
             GameObject smallSkull1 = Instantiate(smallSkullPrefab, new Vector3(325f, 342f, -3), Quaternion.identity);
             smallSkull1.name = "smallSkull1";
@@ -173,11 +176,6 @@ public class LevelManager : MonoBehaviour
 
     private void MoveHeroIcon()
     {
-        if(phase == 1)
-        {
-            //unterer Teil war vorher hier drin
-        }
-
         if (stepList.Count > 1)
         {
             stepList.RemoveAt(0);
@@ -203,6 +201,19 @@ public class LevelManager : MonoBehaviour
     }
 
 
+    public void StartSequence()
+    {
+        sequenceOngoing = true;
+        StartCoroutine(sequenceManager.StartSequence(level, phase));
+    }
+
+
+    public void FinishSequence()
+    {
+        sequenceOngoing = false;
+    }
+
+
     private IEnumerator Level1()
     {
         MeasureIconStep();
@@ -212,13 +223,17 @@ public class LevelManager : MonoBehaviour
             {
                 //stuff happens
                 //next phase starts
-                yield return new WaitForSeconds(2f);
-                zombieCounter = 4;
+                StartSequence();
+                while (sequenceOngoing)
+                {
+                    yield return new WaitForSeconds(0.1f);
+                }
+                
+                zombieCounter = 8;
                 maxEnemies = zombieCounter;
                 spawnScript.ResetSpawnCounter();
                 phase = 2;
             }
-            Debug.Log("Level: " + level + " Phase: " + phase);
             yield return new WaitForSeconds(0.1f);
         }
         MeasureIconStep();
@@ -235,13 +250,11 @@ public class LevelManager : MonoBehaviour
                 phase = 3;
             }
             yield return new WaitForSeconds(0.1f);
-            Debug.Log("Level: " + level + " Phase: " + phase);
         }
         MeasureIconStep();
         while (phase == 3)
         {
             yield return new WaitForSeconds(0.1f);
-            Debug.Log("Level: " + level + " Phase: " + phase);
         }
     }
 

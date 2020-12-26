@@ -10,11 +10,13 @@ public class FaceMouse : MonoBehaviour
     public static Vector2 direction;
 
     PlayerControls controls;
+    private bool pause;
 
 
     private void Awake()
     {
         controls = new PlayerControls();
+        pause = false;
     }
 
 
@@ -27,17 +29,32 @@ public class FaceMouse : MonoBehaviour
 
     void Update()
     {
-        mousePosition = controls.Basic.MousePosition.ReadValue<Vector2>();
-        direction = GetDirection(Camera.main.ScreenToWorldPoint(mousePosition), transform.position);
-        float angle = (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) - 90;
-        Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, PlayerStats.rotationSpeed * Time.deltaTime);
+        if (!pause)
+        {
+            mousePosition = controls.Basic.MousePosition.ReadValue<Vector2>();
+            direction = GetDirection(Camera.main.ScreenToWorldPoint(mousePosition), transform.position);
+            float angle = (Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg) - 90;
+            Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            transform.rotation = Quaternion.Slerp(transform.rotation, rotation, PlayerStats.rotationSpeed * Time.deltaTime);
+        }
     }
 
 
     public static Vector3 GetDirection(Vector3 start, Vector3 end)
     {
         return start - end;
+    }
+
+
+    public void Pause()
+    {
+        pause = true;
+    }
+
+
+    public void UnPause()
+    {
+        pause = false;
     }
 
 

@@ -1,0 +1,1196 @@
+fileFormatVersion: 2
+guid: 2918329bd282d3f4facd11977b2bc21f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -4114373864274196843
+    second: DarkMagic_0
+  - first:
+      213: -2023565335697401266
+    second: DarkMagic_1
+  - first:
+      213: 3558726845922258070
+    second: DarkMagic_2
+  - first:
+      213: -603321441644656920
+    second: DarkMagic_3
+  - first:
+      213: -8758621824529930401
+    second: DarkMagic_4
+  - first:
+      213: 4369950456831969972
+    second: DarkMagic_5
+  - first:
+      213: 8031540908359157610
+    second: DarkMagic_6
+  - first:
+      213: 984647180411851357
+    second: DarkMagic_7
+  - first:
+      213: -3948257555217800051
+    second: DarkMagic_8
+  - first:
+      213: -2903090486370583405
+    second: DarkMagic_9
+  - first:
+      213: -5552497902349721689
+    second: DarkMagic_10
+  - first:
+      213: -3426416934463773302
+    second: DarkMagic_11
+  - first:
+      213: 5523668970773033283
+    second: DarkMagic_12
+  - first:
+      213: 6232376182647049023
+    second: DarkMagic_13
+  - first:
+      213: -6255127350126772566
+    second: DarkMagic_14
+  - first:
+      213: -7855223256588666287
+    second: DarkMagic_15
+  - first:
+      213: -6730575587068160055
+    second: DarkMagic_16
+  - first:
+      213: -4015774279712155126
+    second: DarkMagic_17
+  - first:
+      213: 4512256569875101332
+    second: DarkMagic_18
+  - first:
+      213: 7532228379745648777
+    second: DarkMagic_19
+  - first:
+      213: -7977415500699321650
+    second: DarkMagic_20
+  - first:
+      213: -4120286065648654383
+    second: DarkMagic_21
+  - first:
+      213: -4941158188153368688
+    second: DarkMagic_22
+  - first:
+      213: -7908282905105682559
+    second: DarkMagic_23
+  - first:
+      213: -8145818594148869254
+    second: DarkMagic_24
+  - first:
+      213: -5713984635902354811
+    second: DarkMagic_25
+  - first:
+      213: 2132343541029305209
+    second: DarkMagic_26
+  - first:
+      213: -2167569759080007867
+    second: DarkMagic_27
+  - first:
+      213: 7073016534059324276
+    second: DarkMagic_28
+  - first:
+      213: -1360204357260588782
+    second: DarkMagic_29
+  - first:
+      213: 7206506697632600427
+    second: DarkMagic_30
+  - first:
+      213: -32774503721200061
+    second: DarkMagic_31
+  - first:
+      213: -7626443912793863040
+    second: DarkMagic_32
+  - first:
+      213: -2288391405875690080
+    second: DarkMagic_33
+  - first:
+      213: -5337359833612964782
+    second: DarkMagic_34
+  - first:
+      213: 3635907402595922472
+    second: DarkMagic_35
+  - first:
+      213: -6813070486152441246
+    second: DarkMagic_36
+  - first:
+      213: 7185152940473962901
+    second: DarkMagic_37
+  - first:
+      213: -657303652985829189
+    second: DarkMagic_38
+  - first:
+      213: 9076464834844110629
+    second: DarkMagic_39
+  - first:
+      213: -7952286203449563495
+    second: DarkMagic_40
+  - first:
+      213: 425778056929962063
+    second: DarkMagic_41
+  - first:
+      213: 6675166892649629050
+    second: DarkMagic_42
+  - first:
+      213: 8881134829544141909
+    second: DarkMagic_43
+  - first:
+      213: 3581592033630058562
+    second: DarkMagic_44
+  - first:
+      213: 5143447413140602954
+    second: DarkMagic_45
+  - first:
+      213: -3131124594714083566
+    second: DarkMagic_46
+  - first:
+      213: -7326283045493721776
+    second: DarkMagic_47
+  - first:
+      213: 7310284980644598853
+    second: DarkMagic_48
+  - first:
+      213: 6536548996861211476
+    second: DarkMagic_49
+  - first:
+      213: -2647329991684645930
+    second: DarkMagic_50
+  - first:
+      213: -1578872995342004261
+    second: DarkMagic_51
+  - first:
+      213: 7817010827078772351
+    second: DarkMagic_52
+  - first:
+      213: -3120876062701064619
+    second: DarkMagic_53
+  - first:
+      213: -8176088763941184362
+    second: DarkMagic_54
+  - first:
+      213: -179051297952380402
+    second: DarkMagic_55
+  - first:
+      213: -2416010418215787039
+    second: DarkMagic_56
+  - first:
+      213: -2281735006683892670
+    second: DarkMagic_57
+  - first:
+      213: -5178160964779673797
+    second: DarkMagic_58
+  - first:
+      213: -1222419250858925863
+    second: DarkMagic_59
+  - first:
+      213: -5990508409932558756
+    second: DarkMagic_60
+  - first:
+      213: -7285883720614833844
+    second: DarkMagic_61
+  - first:
+      213: 7961171911886247360
+    second: DarkMagic_62
+  - first:
+      213: 3151443231314386187
+    second: DarkMagic_63
+  - first:
+      213: -4354184936192135305
+    second: DarkMagic_64
+  - first:
+      213: 2874057865648320575
+    second: DarkMagic_65
+  - first:
+      213: 5946867512530459054
+    second: DarkMagic_66
+  - first:
+      213: 4169732611808772143
+    second: DarkMagic_67
+  - first:
+      213: 3380812514890896022
+    second: DarkMagic_68
+  - first:
+      213: -3037002480023528119
+    second: DarkMagic_69
+  - first:
+      213: -204751403190564093
+    second: DarkMagic_70
+  - first:
+      213: 4148276176070598996
+    second: DarkMagic_71
+  - first:
+      213: -4879640820651532423
+    second: DarkMagic_72
+  - first:
+      213: -2312171248093584417
+    second: DarkMagic_73
+  - first:
+      213: -4546525798492093319
+    second: DarkMagic_74
+  - first:
+      213: 4596349492513835047
+    second: DarkMagic_75
+  - first:
+      213: 8945949385976037600
+    second: DarkMagic_76
+  - first:
+      213: -7779622581081889293
+    second: DarkMagic_77
+  - first:
+      213: -640176891782626347
+    second: DarkMagic_78
+  - first:
+      213: -4320175101406484664
+    second: DarkMagic_79
+  - first:
+      213: 8018937719943489960
+    second: DarkMagic_80
+  - first:
+      213: 6839495621616770102
+    second: DarkMagic_81
+  - first:
+      213: 912260553801139016
+    second: DarkMagic_82
+  - first:
+      213: 2630211346285726392
+    second: DarkMagic_83
+  - first:
+      213: 562091730190788554
+    second: DarkMagic_84
+  - first:
+      213: 8489533596251139370
+    second: DarkMagic_85
+  - first:
+      213: 8478031895386257236
+    second: DarkMagic_86
+  - first:
+      213: -1690869485120932911
+    second: DarkMagic_87
+  - first:
+      213: -3304215752095395125
+    second: DarkMagic_88
+  - first:
+      213: 8669737703071153606
+    second: DarkMagic_89
+  - first:
+      213: 9130020308436690214
+    second: DarkMagic_90
+  - first:
+      213: -2401062682439780487
+    second: DarkMagic_91
+  - first:
+      213: -5045185051968883057
+    second: DarkMagic_92
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: DarkMagic_0
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59609c2f4cec6e6c0800000000000000
+      internalID: -4114373864274196843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_1
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4a56f96c0adae3e0800000000000000
+      internalID: -2023565335697401266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_2
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69ca7df1633236130800000000000000
+      internalID: 3558726845922258070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1344
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e6c469685290a7f0800000000000000
+      internalID: -603321441644656920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f57e8e21bdf137680800000000000000
+      internalID: -8758621824529930401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_5
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ba868999ce25ac30800000000000000
+      internalID: 4369950456831969972
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6704c937e3c57f60800000000000000
+      internalID: 8031540908359157610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_7
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d52d989c46b2aad00800000000000000
+      internalID: 984647180411851357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_8
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1152
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d84ad7b1ca8f439c0800000000000000
+      internalID: -3948257555217800051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39cb019759626b7d0800000000000000
+      internalID: -2903090486370583405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_10
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7afd752839091f2b0800000000000000
+      internalID: -5552497902349721689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_11
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8567e8b3fbe270d0800000000000000
+      internalID: -3426416934463773302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_12
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34136cbc9a308ac40800000000000000
+      internalID: 5523668970773033283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_13
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 960
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3b48491e19dd7650800000000000000
+      internalID: 6232376182647049023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aaefcdee0d25139a0800000000000000
+      internalID: -6255127350126772566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_15
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15a35af1114acf290800000000000000
+      internalID: -7855223256588666287
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_16
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c7d2e6e9213892a0800000000000000
+      internalID: -6730575587068160055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_17
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0a5b9fa19a1548c0800000000000000
+      internalID: -4015774279712155126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_18
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 496f3de7171ce9e30800000000000000
+      internalID: 4512256569875101332
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9800bddcdc9d78860800000000000000
+      internalID: 7532228379745648777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_20
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eca3f174ed68a4190800000000000000
+      internalID: -7977415500699321650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_21
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d7250c47adc1d6c0800000000000000
+      internalID: -4120286065648654383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_22
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09f0b18aeca7d6bb0800000000000000
+      internalID: -4941158188153368688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_23
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 576
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18fa1e10992204290800000000000000
+      internalID: -7908282905105682559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7b1cf2a52d34fe80800000000000000
+      internalID: -8145818594148869254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_25
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58a10056f39d3b0b0800000000000000
+      internalID: -5713984635902354811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_26
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 97b7626272b979d10800000000000000
+      internalID: 2132343541029305209
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_27
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5473824d9ce3be1e0800000000000000
+      internalID: -2167569759080007867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_28
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 384
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 47312133017682260800000000000000
+      internalID: 7073016534059324276
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_29
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2194b8ff7559f1de0800000000000000
+      internalID: -1360204357260588782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_30
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b615dd7e8a7a20460800000000000000
+      internalID: 7206506697632600427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_31
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 346120433cf8b8ff0800000000000000
+      internalID: -32774503721200061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_32
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08c4b7efaad692690800000000000000
+      internalID: -7626443912793863040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_33
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 192
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a509b904200e30e0800000000000000
+      internalID: -2288391405875690080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_34
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25caf078283ede5b0800000000000000
+      internalID: -5337359833612964782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_35
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82271ffc486557230800000000000000
+      internalID: 3635907402595922472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: DarkMagic_36
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 192
+        height: 192
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2629f237d7c1371a0800000000000000
+      internalID: -6813070486152441246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
