@@ -15,6 +15,5 @@ public class GunFireScript : MonoBehaviour
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, PlayerStats.rotationSpeed * Time.deltaTime);
         transform.eulerAngles = new Vector3(0, 0, angle);
         Destroy(gameObject, 1.25f);
-
     }
 }

@@ -6,10 +6,8 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] private int level;
-    private static LevelManager _instance;
+    void Start()
 
-
-    private void Awake()
     {
         level = 1;
     }
