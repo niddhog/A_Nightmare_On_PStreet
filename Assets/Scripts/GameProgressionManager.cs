@@ -11,13 +11,7 @@ public class GameProgressionManager : MonoBehaviour
     {
         levelManager = GameObject.Find("GameHandler").GetComponent<LevelManager>();
         StartCoroutine(SetupArrows());
-        levelManager.SetProgressUI();
-    }
-
-
-    void Update()
-    {
-        
+        levelManager.StartGameFlow();
     }
 
 

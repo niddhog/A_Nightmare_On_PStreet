@@ -6,13 +6,15 @@ using UnityEngine;
 public class LevelManager : MonoBehaviour
 {
     private int level;
+    private int phase;
+
     public GameObject heroPrefab;
     public GameObject smallSkullPrefab;
     public GameObject bossSkullPrefab;
 
+    private EnemySpawnScript spawnScript;
     private GameObject heroIcon;
     private int zombieCounter;
-    private int phase;
     private int maxEnemies;
     private GameProgressionManager progression;
     private float xStep;
@@ -27,6 +29,7 @@ public class LevelManager : MonoBehaviour
     void Awake()
 
     {
+        spawnScript = GameObject.Find("GameHandler").GetComponent<EnemySpawnScript>();
         stepList = new List<float>();
         levelInProgress = false;
         movementInProgress = false;
@@ -40,6 +43,12 @@ public class LevelManager : MonoBehaviour
     public int GetLevel()
     {
         return level;
+    }
+
+
+    public int GetPhase()
+    {
+        return phase;
     }
 
 
@@ -67,15 +76,16 @@ public class LevelManager : MonoBehaviour
     }
 
 
-    public void SetProgressUI()
+    public void StartGameFlow()
     {
         heroIcon = Instantiate(heroPrefab, new Vector3(50f, 340f, -3), Quaternion.identity);
         heroIcon.name = "heroIcon";
         heroIcon.transform.SetParent(GameObject.Find("Canvas").GetComponent<Transform>(), false);
         phase = 1;
+        spawnScript.UnPause();
         if (level == 1)
         {
-            zombieCounter = 15;
+            zombieCounter = 2;
             maxEnemies = zombieCounter;
             GameObject smallSkull1 = Instantiate(smallSkullPrefab, new Vector3(325f, 342f, -3), Quaternion.identity);
             smallSkull1.name = "smallSkull1";
@@ -85,13 +95,17 @@ public class LevelManager : MonoBehaviour
             smallSkull2.name = "smallSkull2";
             smallSkull2.transform.SetParent(GameObject.Find("Canvas").GetComponent<Transform>(), false);
 
+            GameObject bossSkull = Instantiate(bossSkullPrefab, new Vector3(920f, 339f, -3), Quaternion.identity);
+            bossSkull.name = "bossSkull";
+            bossSkull.transform.SetParent(GameObject.Find("Canvas").GetComponent<Transform>(), false);
+
             StartCoroutine(Level1());
         }
     }
 
 
     private void MeasureIconStep()
-    {
+    {        
         stepList = new List<float>();
         stepList.Add(0f);
         if (phase == 1)
@@ -100,8 +114,53 @@ public class LevelManager : MonoBehaviour
         }
         else if (phase == 2)
         {
-            xTarget = GameObject.Find("smallSkull2").transform.position.x;
+            if(GameObject.Find("smallSkull2") == null)
+            {
+                xTarget = GameObject.Find("bossSkull").transform.position.x;
+            }
+            else
+            {
+                xTarget = GameObject.Find("smallSkull2").transform.position.x;
+            }          
         }
+        else if (phase == 3)
+        {
+            if (GameObject.Find("smallSkull3") == null)
+            {
+                xTarget = GameObject.Find("bossSkull").transform.position.x;
+            }
+            else
+            {
+                xTarget = GameObject.Find("smallSkull3").transform.position.x;
+            }
+        }
+        else if (phase == 4)
+        {
+            if (GameObject.Find("smallSkull4") == null)
+            {
+                xTarget = GameObject.Find("bossSkull").transform.position.x;
+            }
+            else
+            {
+                xTarget = GameObject.Find("smallSkull4").transform.position.x;
+            }
+        }
+        else if (phase == 5)
+        {
+            if (GameObject.Find("smallSkull5") == null)
+            {
+                xTarget = GameObject.Find("bossSkull").transform.position.x;
+            }
+            else
+            {
+                xTarget = GameObject.Find("smallSkull5").transform.position.x;
+            }
+        }
+        else if (phase == 6)
+        {
+            xTarget = GameObject.Find("bossSkull").transform.position.x;
+        }
+
         xHero = GameObject.Find("heroIcon").transform.position.x;
         xStep = (xTarget - xHero) / zombieCounter; //here also subtract other enemy counters
         for(int i = 0; i < zombieCounter; i++)
@@ -116,15 +175,30 @@ public class LevelManager : MonoBehaviour
     {
         if(phase == 1)
         {
-            if (stepList.Count > 1)
-            {
-                stepList.RemoveAt(0);
-            }
-            if (!movementInProgress)
-            {
-                StartCoroutine(MoveIcon());
-                movementInProgress = true;
-            }
+            //unterer Teil war vorher hier drin
+        }
+
+        if (stepList.Count > 1)
+        {
+            stepList.RemoveAt(0);
+        }
+        if (!movementInProgress)
+        {
+            StartCoroutine(MoveIcon());
+            movementInProgress = true;
+        }
+    }
+
+
+    public float GetSpawnRate()
+    {
+        if(level == 1)
+        {
+            return 1f;
+        }
+        else
+        {
+            return 10f;
         }
     }
 
@@ -138,18 +212,32 @@ public class LevelManager : MonoBehaviour
             {
                 //stuff happens
                 //next phase starts
-                zombieCounter = 15;
+                yield return new WaitForSeconds(2f);
+                zombieCounter = 4;
                 maxEnemies = zombieCounter;
+                spawnScript.ResetSpawnCounter();
                 phase = 2;
             }
             Debug.Log("Level: " + level + " Phase: " + phase);
             yield return new WaitForSeconds(0.1f);
         }
+        MeasureIconStep();
         while (phase == 2)
         {
+            if (zombieCounter == 0)
+            {
+                //stuff happens
+                //next phase starts
+                yield return new WaitForSeconds(2f);
+                zombieCounter = 10;
+                maxEnemies = zombieCounter;
+                spawnScript.ResetSpawnCounter();
+                phase = 3;
+            }
             yield return new WaitForSeconds(0.1f);
             Debug.Log("Level: " + level + " Phase: " + phase);
         }
+        MeasureIconStep();
         while (phase == 3)
         {
             yield return new WaitForSeconds(0.1f);
@@ -163,7 +251,7 @@ public class LevelManager : MonoBehaviour
         while (heroIcon.transform.position.x < stepList[0])
         {
             heroIcon.transform.position += new Vector3(0.5f, 0, 0);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(0.01f);
         }
         movementInProgress = false;
     }

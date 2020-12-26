@@ -19,7 +19,7 @@ public class PlayerStats : MonoBehaviour
         rotationSpeed = 2;
         reloadSpeed = 0.09f;
         bulletSpeed = 700;
-        firingSpeed = 0.90f;
+        firingSpeed = 0.8f;
         bulletAccuracy = 1;
         magazinSize = 92;
         health = 100f;

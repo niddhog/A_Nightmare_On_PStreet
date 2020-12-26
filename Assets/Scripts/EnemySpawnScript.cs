@@ -13,14 +13,14 @@ public class EnemySpawnScript : MonoBehaviour
     private int spawnCounter;
     private bool pause;
 
-    void Start()
+    private void Awake()
     {
         levelManager = GameObject.Find("GameHandler").GetComponent<LevelManager>();
         isSpawning = false;
         zombiesMown = false;
         audioManager = GameObject.Find("GameHandler").GetComponent<AudioManager>();
         spawnCounter = 0;
-        pause = false;
+        pause = true;
     }
 
 
@@ -38,12 +38,12 @@ public class EnemySpawnScript : MonoBehaviour
         {
             if (levelManager.GetLevel() == 1)
             {
-                StartCoroutine(SpawnTimer(0.1f));
+                StartCoroutine(SpawnTimer(levelManager.GetSpawnRate()));
             }
             isSpawning = true;
         }
 
-        if(GameObject.Find("z") != null && !zombiesMown)
+        if(GameObject.Find("z") != null && !zombiesMown && !pause)
         {
             StartCoroutine(ZombieMoaner());
             zombiesMown = true;
@@ -53,6 +53,7 @@ public class EnemySpawnScript : MonoBehaviour
 
     private IEnumerator SpawnTimer(float time)
     {
+        Debug.Log("Enemy Counter: "+levelManager.GetEnemyCounter());
         if (levelManager.GetLevel() == 1 && spawnCounter < levelManager.GetEnemyCounter())
         {
             Vector3 spawnPoint = new Vector3(Random.Range(-153f, -100f), Random.Range(-100f, 100f),-2);
@@ -77,15 +78,17 @@ public class EnemySpawnScript : MonoBehaviour
 
     public void Pause()
     {
-        if (pause)
-        {
-            pause = false;
-            audioManager.zombies.UnPause();
-        }
-        else
-        {
-            pause = true;
-            audioManager.zombies.Pause();
-        }
+        pause = true;
+    }
+
+
+    public void UnPause()
+    {
+        pause = false;
+    }
+
+    public void ResetSpawnCounter()
+    {
+        spawnCounter = 0;
     }
 }
