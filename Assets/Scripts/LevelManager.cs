@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Singleton
 public class LevelManager : MonoBehaviour
 {
     [SerializeField] private int level;
     void Start()
+
     {
         level = 1;
     }

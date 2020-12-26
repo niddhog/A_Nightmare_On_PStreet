@@ -7,21 +7,13 @@ public class EnemyStats : MonoBehaviour
     //public SpriteRenderer spriteRenderer;
     //public Sprite zombie;
 
-    private void Awake()
+    private void Start()
     {
         
     }
 
-
-    // Start is called before the first frame update
-    void Start()
+    public int[] GetEnemyStats()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        return null;
     }
 }
