@@ -120,7 +120,31 @@ public class AmmoHandler : MonoBehaviour
         while (bulletQueue.Count < magazinSize)
         {
             audioManager.gReload.Play();
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(0.2f);
+            if(bulletQueue.Count < magazinSize)
+            {
+                break;
+            }
+            yield return new WaitForSeconds(0.2f);
+            if (bulletQueue.Count < magazinSize)
+            {
+                break;
+            }
+            yield return new WaitForSeconds(0.2f);
+            if (bulletQueue.Count < magazinSize)
+            {
+                break;
+            }
+            yield return new WaitForSeconds(0.2f);
+            if (bulletQueue.Count < magazinSize)
+            {
+                break;
+            }
+            yield return new WaitForSeconds(0.2f);
+            if (bulletQueue.Count < magazinSize)
+            {
+                break;
+            }
         }
     }
 

@@ -10,6 +10,7 @@ public class PlayerController : MonoBehaviour
     public GameObject gFirePrefab;
     [HideInInspector]
     public bool shooting;
+    public bool aboart;
 
 
     private Vector2 mousePosition;
@@ -39,49 +40,56 @@ public class PlayerController : MonoBehaviour
         gunCStarted = false;
         bulletBlock = false;
         warmUp = true;
+        aboart = false;
     }
 
 
     void Update()
     {
-        mousePosition = FaceMouse.mousePosition;
-
-        if (shooting)
+        if (PlayerStats.GAMEOVER)
         {
-            if(GameObject.Find("GameHandler").GetComponent<AmmoHandler>().isReloading == true)
-            {
 
-            }
-            else
-            {
-                if (!gunCStarted)
-                {
-                    if (!AmmoHandler.CheckIfEmpty())
-                    {
-                        ShellParticles.StartShellEmission();
-                    }
-                    audioManager.mgStart.Play();
-                    StartCoroutine(gunCoroutine);
-                    gunCStarted = true;
-                }
-                Shoot();
-            }       
         }
         else
         {
-            if (gunCStarted)
+            mousePosition = FaceMouse.mousePosition;
+
+            if (shooting)
             {
-                ShellParticles.StopShellEmission();
-                audioManager.mgEnd.Play();
-                audioManager.mgRunning.Stop();
-                warmUp = true;
+                if (GameObject.Find("GameHandler").GetComponent<AmmoHandler>().isReloading == true)
+                {
+
+                }
+                else
+                {
+                    if (!gunCStarted)
+                    {
+                        if (!AmmoHandler.CheckIfEmpty())
+                        {
+                            ShellParticles.StartShellEmission();
+                        }
+                        audioManager.mgStart.Play();
+                        StartCoroutine(gunCoroutine);
+                        gunCStarted = true;
+                    }
+                    Shoot();
+                }
             }
+            else
+            {
+                if (gunCStarted)
+                {
+                    ShellParticles.StopShellEmission();
+                    audioManager.mgEnd.Play();
+                    audioManager.mgRunning.Stop();
+                    warmUp = true;
+                }
 
-            StopCoroutine(gunCoroutine);
-            gunCoroutine = GattlingRunning();
-            gunCStarted = false;
+                StopCoroutine(gunCoroutine);
+                gunCoroutine = GattlingRunning();
+                gunCStarted = false;
+            }
         }
-
     }
 
 
@@ -101,8 +109,46 @@ public class PlayerController : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(0.5f);
+            if (aboart)
+            {
+                break;
+            }
             audioManager.mgRunning.Play();
-            yield return new WaitForSeconds(3.5f);
+            yield return new WaitForSeconds(0.5f);
+            if (aboart)
+            {
+                break;
+            }
+            yield return new WaitForSeconds(0.5f);
+            if (aboart)
+            {
+                break;
+            }
+            yield return new WaitForSeconds(0.5f);
+            if (aboart)
+            {
+                break;
+            }
+            yield return new WaitForSeconds(0.5f);
+            if (aboart)
+            {
+                break;
+            }
+            yield return new WaitForSeconds(0.5f);
+            if (aboart)
+            {
+                break;
+            }
+            yield return new WaitForSeconds(0.5f);
+            if (aboart)
+            {
+                break;
+            }
+            yield return new WaitForSeconds(0.5f);
+            if (aboart)
+            {
+                break;
+            }
         }
     }
 
