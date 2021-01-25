@@ -19,6 +19,10 @@ public class AudioManager : MonoBehaviour
     public AudioSource wireDamage;
     public AudioSource gameOverZombie;
     public AudioSource gameOverMusic;
+    public AudioSource sirene;
+    public AudioSource darkMagic01;
+    public AudioSource draculaLaugh;
+    public AudioSource batsFlying;
 
 
     public void Awake()
@@ -38,6 +42,9 @@ public class AudioManager : MonoBehaviour
         wireDamage.volume = 0.5f;
         gameOverZombie.volume = 0.5f;
         gameOverMusic.volume = 0.5f;
+        sirene.volume = 0.75f;
+        darkMagic01.volume = 0.75f;
+        draculaLaugh.volume = 0.75f;
     }
 
 

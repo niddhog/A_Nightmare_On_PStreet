@@ -36,6 +36,5 @@ public class PauseScript : MonoBehaviour
         spawnScript.UnPause();
         pController.UnPause();
         ammoScript.UnPause();
-        ShellParticles.StartShellEmission();
     }
 }
