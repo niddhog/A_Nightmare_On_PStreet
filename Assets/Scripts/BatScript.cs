@@ -21,11 +21,12 @@ public class BatScript : MonoBehaviour
 
     void Start()
     {
-        dead = false;
         health = 1;
-        attackSpeed = 1; //Range [1,2]
+        attackSpeed = 1.6f; //Range [1,2]
         speed = Random.Range(20f, 50f);
-        attackPower = Random.Range(10, 20);
+        attackPower = Random.Range(0.5f, 1);
+
+        dead = false;
         levelManager = GameObject.Find("GameHandler").GetComponent<LevelManager>();
         audioManager = GameObject.Find("GameHandler").GetComponent<AudioManager>();
         wait = false;
@@ -51,7 +52,8 @@ public class BatScript : MonoBehaviour
             }
             else if (health <= 0)
             {
-                levelManager.ReduceZombie();
+                audioManager.batDies.Play();
+                levelManager.ReduceEnemy();
                 gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
                 animator.SetBool("Dead", true);
                 dead = true;
@@ -73,7 +75,6 @@ public class BatScript : MonoBehaviour
                 {
                     transform.position -= new Vector3(0, speed * Time.deltaTime, 0);
                 }
-                Debug.Log(transform.position.y);
             }
         }
     }
@@ -121,13 +122,6 @@ public class BatScript : MonoBehaviour
                 {
                     StartCoroutine(Attack());
                     attackInMotion = true;
-                }
-            }
-            else if (collision.gameObject.name == "bat")
-            {
-                if (collision.gameObject.transform.position.x >= transform.position.x && collision.GetComponent<Animator>().GetBool("Dead"))
-                {
-                    wait = false;
                 }
             }
         }

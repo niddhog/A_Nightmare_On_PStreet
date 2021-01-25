@@ -7,7 +7,7 @@ public class ShellParticles : MonoBehaviour
     public static ParticleSystem.EmissionModule shellParticleEmisson;
     public static ParticleSystem shellParticleSystem;
 
-    void Start()
+    void Awake()
     {
         shellParticleEmisson = GameObject.Find("ShellParticleSystem").GetComponent<ParticleSystem>().emission;
         shellParticleEmisson.enabled = false;

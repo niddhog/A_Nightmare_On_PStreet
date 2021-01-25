@@ -10,7 +10,7 @@ public class PauseScript : MonoBehaviour
     private AmmoHandler ammoScript;
     private AudioManager audioManager;
 
-    void Start()
+    void Awake()
     {
         fMouse = GameObject.Find("Player_s").GetComponent<FaceMouse>();
         pController = GameObject.Find("Player_s").GetComponent<PlayerController>();

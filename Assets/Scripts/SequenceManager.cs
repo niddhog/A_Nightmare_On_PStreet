@@ -13,18 +13,14 @@ public class SequenceManager : MonoBehaviour
     private LevelManager levelManager;
     private PauseScript pause;
     private AudioManager audioManager;
-    //private ParticleSystem.EmissionModule batsParticleEmisson;
     private ParticleSystem batsParticleSystem;
 
-    void Start()
+    private void Awake()
     {
-        //batsParticleEmisson = GameObject.Find("batParticles").GetComponent<ParticleSystem>().emission;
-
         levelManager = GameObject.Find("GameHandler").GetComponent<LevelManager>();
         pause = GameObject.Find("GameHandler").GetComponent<PauseScript>();
         audioManager = GameObject.Find("GameHandler").GetComponent<AudioManager>();
     }
-
 
     public IEnumerator StartSequence(int level, int phase)
     {
