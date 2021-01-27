@@ -43,6 +43,10 @@ public class LevelManager : MonoBehaviour
         phase = 1;
         enemyCounter = 1;
         progression = GameObject.Find("GameHandler").GetComponent<GameProgressionManager>();
+    }
+
+    private void Start()
+    {
         levelBalancingManager.SetLevelStats();
     }
 
@@ -243,8 +247,6 @@ public class LevelManager : MonoBehaviour
         {
             if (enemyCounter == 0)
             {
-                //stuff happens
-                //next phase starts
                 StartSequence();
                 while (sequenceOngoing)
                 {
@@ -265,9 +267,11 @@ public class LevelManager : MonoBehaviour
         {
             if (enemyCounter == 0)
             {
-                //stuff happens
-                //next phase starts
-                yield return new WaitForSeconds(2f);
+                StartSequence();
+                while (sequenceOngoing)
+                {
+                    yield return new WaitForSeconds(0.1f);
+                }
                 spawnScript.ResetSpawnCounter();
                 phase = 3;
             }

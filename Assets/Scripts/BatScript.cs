@@ -59,7 +59,11 @@ public class BatScript : MonoBehaviour
                 dead = true;
             }
 
-            if (!(animator.GetBool("Dead")) && !(animator.GetBool("Attack")) && !wait)
+            if (!animator.GetBool("hasSpawned"))
+            {
+
+            }
+            else if (!(animator.GetBool("Dead")) && !(animator.GetBool("Attack")) && !wait)
             {
                 transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
 

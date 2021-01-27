@@ -14,12 +14,15 @@ public class SequenceManager : MonoBehaviour
     private PauseScript pause;
     private AudioManager audioManager;
     private ParticleSystem batsParticleSystem;
+    private CameraController cameraManager;
 
     private void Awake()
     {
         levelManager = GameObject.Find("GameHandler").GetComponent<LevelManager>();
         pause = GameObject.Find("GameHandler").GetComponent<PauseScript>();
         audioManager = GameObject.Find("GameHandler").GetComponent<AudioManager>();
+        cameraManager = GameObject.Find("Main Camera").GetComponent<CameraController>();
+
     }
 
     public IEnumerator StartSequence(int level, int phase)
@@ -32,22 +35,22 @@ public class SequenceManager : MonoBehaviour
                 audioManager.zombies.Stop();
                 audioManager.sirene.Play();
                 yield return new WaitForSeconds(1f);
-
                 GameObject sireneLight = Instantiate(sirenePrefab, new Vector3(0, 0, -3), Quaternion.identity);
                 sireneLight.name = "sireneLight";
                 sireneLight.transform.SetParent(GameObject.Find("Canvas").GetComponent<Transform>(), false);
 
                 yield return new WaitForSeconds(1f);
+                GameObject midSequenceText = Instantiate(sequenceTextPrefab, new Vector3(0, 0, -6), Quaternion.identity);
+                midSequenceText.name = "midSequenceText";
+                midSequenceText.transform.SetParent(GameObject.Find("Canvas").GetComponent<Transform>(), false);
 
                 GameObject textBox = Instantiate(textBoxPrefab, new Vector3(0, 0, -5), Quaternion.identity);
                 textBox.name = "textbox";
                 textBox.transform.SetParent(GameObject.Find("Canvas").GetComponent<Transform>(), false);
-
-                yield return new WaitForSeconds(1f);
-
-                GameObject midSequenceText = Instantiate(sequenceTextPrefab, new Vector3(0, 0, -6), Quaternion.identity);
-                midSequenceText.name = "midSequenceText";
-                midSequenceText.transform.SetParent(GameObject.Find("Canvas").GetComponent<Transform>(), false);
+                audioManager.spinAmbient.Play();
+                yield return new WaitForSeconds(0.6f);
+                yield return new WaitForSeconds(0.3f);
+                cameraManager.Shake(0.3f, 1, 50);
 
                 yield return new WaitForSeconds(4f);
                 audioManager.sirene.Stop();
@@ -58,7 +61,7 @@ public class SequenceManager : MonoBehaviour
                 GameObject.Find("sireneLight").GetComponent<Animator>().SetBool("finish", true);
 
                 yield return new WaitForSeconds(1f);
-
+                audioManager.Level1Music.Play();
                 GameObject magic1 = Instantiate(darkMagicPrefab, new Vector3(-180,-45,70), Quaternion.identity);
                 magic1.name = "magic1";
                 magic1.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>(),false);
@@ -88,19 +91,45 @@ public class SequenceManager : MonoBehaviour
                 yield return new WaitForSeconds(1.5f);
                 batsParticleSystem.Stop();
                 audioManager.batsFlying.Stop();
-
-
             }
             else if (phase == 2)
             {
+                audioManager.zombies.Stop();
+                GameObject magic1 = Instantiate(darkMagicPrefab, new Vector3(-180, -45, 70), Quaternion.identity);
+                magic1.name = "magic1";
+                magic1.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>(), false);
+                audioManager.darkMagic01.Play();
 
+                yield return new WaitForSeconds(0.5f);
+                GameObject magic2 = Instantiate(darkMagicPrefab, new Vector3(-171, -37, 70), Quaternion.identity);
+                magic2.name = "magic2";
+                magic2.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>(), false);
+                audioManager.darkMagic01.Play();
+
+                yield return new WaitForSeconds(0.5f);
+                GameObject magic3 = Instantiate(darkMagicPrefab, new Vector3(-183, -62, 70), Quaternion.identity);
+                magic3.name = "magic2";
+                magic3.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>(), false);
+                audioManager.darkMagic01.Play();
+
+                GameObject dracula = Instantiate(draculaPrefab, new Vector3(-183, -62, 70), Quaternion.identity);
+                dracula.name = "dracula";
+                dracula.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>(), false);
+                dracula.GetComponent<Animator>().SetBool("phase2", true);
+                batsParticleSystem = GameObject.Find("batParticles").GetComponent<ParticleSystem>();
+                batsParticleSystem.Stop();
+                audioManager.countDracula01.Play();
+                audioManager.Level1Music.volume = 0.25f;
+                yield return new WaitForSeconds(5.5f);
+                audioManager.draculaLaugh.Play();
+                audioManager.Level1Music.volume = 0.5f;
             }
             else if (phase == 3)
             {
 
             }
         }
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         audioManager.zombies.Play();
         pause.UnpauseGame();
         levelManager.FinishSequence();

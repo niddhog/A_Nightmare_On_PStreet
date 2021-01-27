@@ -65,7 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: A terrbible horror approaches!
+  m_text: A <wiggle>Terrbible horror</wiggle> approaches!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e0085fffc56d78249a99ce1f779cc83b, type: 2}
   m_sharedMaterial: {fileID: 6284905307676923435, guid: e0085fffc56d78249a99ce1f779cc83b,
@@ -135,12 +135,12 @@ MonoBehaviour:
   m_margin: {x: -521.45935, y: -92.92427, z: -743.46, w: -89.19682}
   m_textInfo:
     textComponent: {fileID: 1390313592194986638}
-    characterCount: 30
+    characterCount: 47
     spriteCount: 0
     spaceCount: 3
-    wordCount: 4
+    wordCount: 6
     linkCount: 0
-    lineCount: 1
+    lineCount: 2
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -193,7 +193,7 @@ MonoBehaviour:
   effectIntensityMultiplier: 50
   appearancesContainer:
     tags:
-    - size
+    - fade
     values:
       defaults:
         sizeDuration: 0.3

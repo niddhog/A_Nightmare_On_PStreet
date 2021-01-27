@@ -28,6 +28,9 @@ public class AudioManager : MonoBehaviour
     public AudioSource powerUp2;
     public AudioSource confrim;
     public AudioSource move;
+    public AudioSource spinAmbient;
+    public AudioSource Level1Music;
+    public AudioSource countDracula01;
 
 
     public void Awake()
@@ -55,6 +58,9 @@ public class AudioManager : MonoBehaviour
         powerUp2.volume = 0.75f;
         confrim.volume = 0.75f;
         move.volume = 0.75f;
+        spinAmbient.volume = 0.75f;
+        Level1Music.volume = 0.5f;
+        countDracula01.volume = 1.5f;
 }
 
 

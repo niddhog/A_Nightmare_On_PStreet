@@ -114,7 +114,7 @@ public class EnemySpawnScript : MonoBehaviour
             }
             else if (levelManager.GetPhase() == 2)
             {
-                Vector3 spawnPoint = new Vector3(-153f, Random.Range(-100f, 100f), -2);
+                Vector3 spawnPoint = new Vector3(Random.Range(-153f, -100f), Random.Range(-100f, 100f), -2);
                 GameObject bat = Instantiate(bats, spawnPoint, Quaternion.identity);
                 bat.name = "b";
                 bat.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>());

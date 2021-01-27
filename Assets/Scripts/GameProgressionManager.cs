@@ -11,7 +11,7 @@ public class GameProgressionManager : MonoBehaviour
     {
         levelManager = GameObject.Find("GameHandler").GetComponent<LevelManager>();
         StartCoroutine(SetupArrows());
-        levelManager.StartGameFlow();
+        StartCoroutine(WarmUpGame());
     }
 
 
@@ -26,5 +26,12 @@ public class GameProgressionManager : MonoBehaviour
             yield return new WaitForSeconds(0.1f);
             x += 20f;
         } 
+    }
+
+
+    private IEnumerator WarmUpGame()
+    {
+        yield return new WaitForSeconds(0.1f);
+        levelManager.StartGameFlow();
     }
 }
