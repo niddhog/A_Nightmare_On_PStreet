@@ -38,7 +38,7 @@ public class SequenceManager : MonoBehaviour
             {
                 audioManager.zombies.Stop();
                 audioManager.FadeIn(audioManager.sirene, 0.25f);
-                yield return new WaitForSeconds(1f);
+                yield return new WaitForSeconds(0.25f);
                 GameObject sireneLight = Instantiate(sirenePrefab, new Vector3(0, 0, -3), Quaternion.identity);
                 sireneLight.name = "sireneLight";
                 sireneLight.transform.SetParent(GameObject.Find("Canvas").GetComponent<Transform>(), false);
@@ -133,8 +133,8 @@ public class SequenceManager : MonoBehaviour
                 yield return new WaitForSeconds(5.5f);
                 audioManager.draculaLaugh.Play();
                 audioManager.Level1Music.volume = 0.5f;
-                textBubbleManager.DisplayBubble(textBubbleManager.fireBubblePrefab, new Vector3(31.9f, -22.5f, 100), 2);
                 yield return new WaitForSeconds(0.5f);
+                textBubbleManager.DisplayBubble(textBubbleManager.fireBubblePrefab, new Vector3(31.9f, -22.5f, 100), 2);
                 for (int i = 0; i < 3; i++)
                 {
                     enemySpawnManager.DraculaSpawnBat();
