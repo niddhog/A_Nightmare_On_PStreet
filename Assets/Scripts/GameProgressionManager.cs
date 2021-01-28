@@ -6,10 +6,12 @@ public class GameProgressionManager : MonoBehaviour
 {
     public GameObject arrowPrefab;
     private LevelManager levelManager;
+    private EnvironmentManager environmentManager;
 
     void Start()
     {
         levelManager = GameObject.Find("GameHandler").GetComponent<LevelManager>();
+        environmentManager = GameObject.Find("GameHandler").GetComponent<EnvironmentManager>();
         StartCoroutine(SetupArrows());
         StartCoroutine(WarmUpGame());
     }
@@ -31,6 +33,7 @@ public class GameProgressionManager : MonoBehaviour
 
     private IEnumerator WarmUpGame()
     {
+        environmentManager.SetFog(0.25f);
         yield return new WaitForSeconds(0.1f);
         levelManager.StartGameFlow();
     }
