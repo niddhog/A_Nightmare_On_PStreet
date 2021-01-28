@@ -15,6 +15,7 @@ public class AmmoHandler : MonoBehaviour
     private bool isFull;
     private IEnumerator reloadingNumerator;
     private IEnumerator fillMagazin;
+    private bool pause;
 
 
     public void Awake()
@@ -27,6 +28,7 @@ public class AmmoHandler : MonoBehaviour
 
     void Start()
     {
+        pause = false;
         reloadingNumerator = Reloading();
         fillMagazin = FillMagazin();
         isReloading = false;
@@ -79,7 +81,7 @@ public class AmmoHandler : MonoBehaviour
 
     void Reload()
     {
-        if(GameObject.Find("Player_s").GetComponent<PlayerController>().shooting == true)
+        if(GameObject.Find("Player_s").GetComponent<PlayerController>().shooting == true || pause)
         {
 
         }
@@ -110,6 +112,18 @@ public class AmmoHandler : MonoBehaviour
                 isReloading = true;
             }
         }
+    }
+
+
+    public void Pause()
+    {
+        pause = true;
+    }
+
+
+    public void UnPause()
+    {
+        pause = false;
     }
 
 

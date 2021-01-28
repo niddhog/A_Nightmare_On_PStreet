@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ZombieScript : MonoBehaviour
+public class BatScript : MonoBehaviour
 {
     private BloodManager blood;
     private DamageManager damage;
@@ -13,22 +13,28 @@ public class ZombieScript : MonoBehaviour
     private float speed;
     private float attackPower;
     private float attackSpeed;
-    AudioManager audioManager;
+    private AudioManager audioManager;
+    private LevelManager levelManager;
+    private bool dead;
+    private float y_target;
 
 
     void Start()
     {
-        health = 10;
-        attackSpeed = 1; //Range [1,2]
+        health = 1;
+        attackSpeed = 1.6f; //Range [1,2]
         speed = Random.Range(20f, 50f);
-        attackPower = Random.Range(10, 20);
+        attackPower = Random.Range(0.5f, 1);
 
+        dead = false;
+        levelManager = GameObject.Find("GameHandler").GetComponent<LevelManager>();
         audioManager = GameObject.Find("GameHandler").GetComponent<AudioManager>();
         wait = false;
         attackInMotion = false;
         animator = gameObject.GetComponent<Animator>();
         blood = GameObject.Find("GameHandler").GetComponent<BloodManager>();
         damage = GameObject.Find("GameHandler").GetComponent<DamageManager>();
+        y_target = Random.Range(-100f,100f);
     }
 
 
@@ -40,14 +46,39 @@ public class ZombieScript : MonoBehaviour
         }
         else
         {
-            if (health <= 0)
+            if (dead)
             {
+
+            }
+            else if (health <= 0)
+            {
+                audioManager.batDies.Play();
+                levelManager.ReduceEnemy();
                 gameObject.GetComponent<BoxCollider2D>().isTrigger = false;
                 animator.SetBool("Dead", true);
+                dead = true;
             }
-            if (animator.GetBool("hasSpawned") && !(animator.GetBool("Dead")) && !(animator.GetBool("Attack")) && !wait)
+
+            if (!animator.GetBool("hasSpawned"))
+            {
+
+            }
+            else if (!(animator.GetBool("Dead")) && !(animator.GetBool("Attack")) && !wait)
             {
                 transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
+
+                if (transform.position.y < y_target + 0.25f && transform.position.y > y_target - 0.25f)
+                {
+                    y_target = Random.Range(-100f, 100f);
+                }
+                else if (transform.position.y < y_target)
+                {
+                    transform.position += new Vector3(0, speed * Time.deltaTime, 0);
+                }
+                else if (transform.position.y > y_target)
+                {
+                    transform.position -= new Vector3(0, speed * Time.deltaTime, 0);
+                }
             }
         }
     }
@@ -59,32 +90,25 @@ public class ZombieScript : MonoBehaviour
         {
             animator.SetBool("Attack", true);
         }
-        else if (collision.gameObject.name == "z" && wait == false)
-        {
-            if(collision.gameObject.transform.position.x >= transform.position.x)
-            {
-                wait = true;
-            }
-        }
         else if (collision.gameObject.name == "Bullet")
         {
             audioManager.hit01.Play();
             blood.SpawnBlood(collision.gameObject);
             Destroy(collision.gameObject);
             health -= PlayerStats.bulletPower;
-        }   
+        }
     }
 
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.gameObject.name == "z")
+        if (collision.gameObject.name == "bat")
         {
             if (collision.gameObject.transform.position.x >= transform.position.x)
             {
                 wait = false;
             }
-        }   
+        }
     }
 
 
@@ -92,7 +116,7 @@ public class ZombieScript : MonoBehaviour
     {
         if (PlayerStats.GAMEOVER)
         {
-            
+
         }
         else
         {
@@ -102,13 +126,6 @@ public class ZombieScript : MonoBehaviour
                 {
                     StartCoroutine(Attack());
                     attackInMotion = true;
-                }
-            }
-            else if (collision.gameObject.name == "z")
-            {
-                if (collision.gameObject.transform.position.x >= transform.position.x && collision.GetComponent<Animator>().GetBool("Dead"))
-                {
-                    wait = false;
                 }
             }
         }

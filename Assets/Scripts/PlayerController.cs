@@ -21,10 +21,12 @@ public class PlayerController : MonoBehaviour
     private bool bulletBlock;
     private bool warmUp;
     private CameraController cameraController;
+    private bool pause;
 
 
     private void Awake()
     {
+        pause = false;
         audioManager = GameObject.Find("GameHandler").GetComponent<AudioManager>();
         controls = new PlayerControls();
         cameraController = new CameraController();
@@ -46,7 +48,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        if (PlayerStats.GAMEOVER)
+        if (PlayerStats.GAMEOVER || pause)
         {
 
         }
@@ -100,6 +102,18 @@ public class PlayerController : MonoBehaviour
             bulletBlock = true;
             StartCoroutine(BulletBlockTime());
         }     
+    }
+
+
+    public void Pause()
+    {
+        pause = true;
+    }
+
+
+    public void UnPause()
+    {
+        pause = false;
     }
 
 
