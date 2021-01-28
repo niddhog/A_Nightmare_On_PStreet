@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: OpenHand
+  m_Name: SpawnBats
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -48,9 +48,9 @@ AnimationClip:
       value: {fileID: 21300000, guid: 4d4ae62aa49491445b2c2d0e756a2f7b, type: 3}
     - time: 0.6666667
       value: {fileID: 21300000, guid: f9ca899a00faf6f419d10c841876c3fe, type: 3}
-    - time: 4
+    - time: 0.8333333
       value: {fileID: 21300000, guid: 869ba98d7b3a9a94f86044e2a50b1be7, type: 3}
-    - time: 4.1666665
+    - time: 1
       value: {fileID: 21300000, guid: f297c00f8d78eb04ebe1727515a7ffa6, type: 3}
     attribute: m_Sprite
     path: 
@@ -90,7 +90,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 4.1833334
+    m_StopTime: 1.0166667
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

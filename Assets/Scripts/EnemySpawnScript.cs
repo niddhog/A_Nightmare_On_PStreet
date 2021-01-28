@@ -67,6 +67,16 @@ public class EnemySpawnScript : MonoBehaviour
     }
 
 
+    public void DraculaSpawnBat()
+    {
+        Vector3 spawnPoint = new Vector3(Random.Range(-153f, -100f), Random.Range(-10,10), -2);
+        GameObject bat = Instantiate(bats, spawnPoint, Quaternion.identity);
+        bat.name = "b";
+        bat.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>());
+        bat.GetComponent<Animator>().SetBool("spawnEnemy", true);
+        batCount += 1;
+    }
+
     private IEnumerator ZombieSpawner()
     {
         if (levelManager.GetLevel() == 1 && zombieCount < levelBalancingManager.GetEnemyCountList()[0])
@@ -122,6 +132,15 @@ public class EnemySpawnScript : MonoBehaviour
                 batCount += 1;
             }
             else if (levelManager.GetPhase() == 3)
+            {
+                Vector3 spawnPoint = new Vector3(-153f, Random.Range(-100f, 100f), -2);
+                GameObject bat = Instantiate(bats, spawnPoint, Quaternion.identity);
+                bat.name = "b";
+                bat.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>());
+                bat.GetComponent<Animator>().SetBool("spawnEnemy", true);
+                batCount += 1;
+            }
+            else if (levelManager.GetPhase() == 4)
             {
                 Vector3 spawnPoint = new Vector3(-153f, Random.Range(-100f, 100f), -2);
                 GameObject bat = Instantiate(bats, spawnPoint, Quaternion.identity);

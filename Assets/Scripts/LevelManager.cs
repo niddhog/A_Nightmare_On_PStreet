@@ -199,7 +199,7 @@ public class LevelManager : MonoBehaviour
     }
 
 
-    public float[] GetSpawnRate()
+    /*public float[] GetSpawnRate()
     {
         float[] spawnArray = new float[] {0,0};
         if(level == 1)
@@ -224,7 +224,7 @@ public class LevelManager : MonoBehaviour
         {
             return spawnArray;
         }
-    }
+    }*/
 
 
     public void StartSequence()
@@ -247,12 +247,12 @@ public class LevelManager : MonoBehaviour
         {
             if (enemyCounter == 0)
             {
+                spawnScript.ResetSpawnCounter();
                 StartSequence();
                 while (sequenceOngoing)
                 {
                     yield return new WaitForSeconds(0.1f);
                 }
-                spawnScript.ResetSpawnCounter();
                 phase = 2;
             }
             yield return new WaitForSeconds(0.1f);
@@ -267,12 +267,12 @@ public class LevelManager : MonoBehaviour
         {
             if (enemyCounter == 0)
             {
+                spawnScript.ResetSpawnCounter();
                 StartSequence();
                 while (sequenceOngoing)
                 {
                     yield return new WaitForSeconds(0.1f);
                 }
-                spawnScript.ResetSpawnCounter();
                 phase = 3;
             }
             yield return new WaitForSeconds(0.1f);
@@ -285,6 +285,35 @@ public class LevelManager : MonoBehaviour
 
         while (phase == 3)
         {
+            if (enemyCounter == 0)
+            {
+                spawnScript.ResetSpawnCounter();
+                StartSequence();
+                while (sequenceOngoing)
+                {
+                    yield return new WaitForSeconds(0.1f);
+                }
+                phase = 4;
+            }
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        levelBalancingManager.SetLevelStats();
+        enemyCounter = levelBalancingManager.GetEnemyCount();
+        maxEnemies = enemyCounter;
+
+        while (phase == 4) //Bossphase Count Dracula
+        {
+            if (enemyCounter == 0)
+            {
+                StartSequence();
+                while (sequenceOngoing)
+                {
+                    yield return new WaitForSeconds(0.1f);
+                }
+                spawnScript.ResetSpawnCounter();
+                phase = 4;
+            }
             yield return new WaitForSeconds(0.1f);
         }
     }
