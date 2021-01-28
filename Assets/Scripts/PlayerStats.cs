@@ -23,7 +23,7 @@ public class PlayerStats : MonoBehaviour
         bulletAccuracy = 1;
         magazinSize = 92;
         health = 100f;
-        bulletPower = 10;
+        bulletPower = 1;
         GAMEOVER = false;
     }
 

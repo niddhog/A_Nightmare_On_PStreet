@@ -20,7 +20,7 @@ public class ZombieScript : MonoBehaviour
 
     void Start()
     {
-        health = 10;
+        health = 2;
         attackSpeed = 1; //Range [1,2]
         speed = Random.Range(20f, 50f);
         attackPower = Random.Range(1, 2);

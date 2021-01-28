@@ -131,34 +131,23 @@ public class AmmoHandler : MonoBehaviour
 
     IEnumerator Reloading()
     {
+        bool terminate = false;
         while (bulletQueue.Count < magazinSize)
         {
             audioManager.gReload.Play();
-            yield return new WaitForSeconds(0.2f);
-            if(bulletQueue.Count < magazinSize)
+            float count = 0;
+
+            while (count < 1)
             {
-                break;
+                if (bulletQueue.Count < magazinSize)
+                {
+                    terminate = true;
+                    break;
+                }
+                yield return new WaitForSeconds(0.01f);
+                count += 0.01f;
             }
-            yield return new WaitForSeconds(0.2f);
-            if (bulletQueue.Count < magazinSize)
-            {
-                break;
-            }
-            yield return new WaitForSeconds(0.2f);
-            if (bulletQueue.Count < magazinSize)
-            {
-                break;
-            }
-            yield return new WaitForSeconds(0.2f);
-            if (bulletQueue.Count < magazinSize)
-            {
-                break;
-            }
-            yield return new WaitForSeconds(0.2f);
-            if (bulletQueue.Count < magazinSize)
-            {
-                break;
-            }
+            if (terminate) { break; }
         }
     }
 

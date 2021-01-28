@@ -30,6 +30,7 @@ public class SequenceManager : MonoBehaviour
         environmentManager = GameObject.Find("GameHandler").GetComponent<EnvironmentManager>();
     }
 
+
     public IEnumerator StartSequence(int level, int phase)
     {
         pause.PauseGame();
@@ -93,6 +94,7 @@ public class SequenceManager : MonoBehaviour
                 audioManager.draculaLaugh.Play();
                 batsParticleSystem = GameObject.Find("batParticles").GetComponent<ParticleSystem>();
                 batsParticleSystem.Stop();
+                
                 yield return new WaitForSeconds(0.5f);
                 batsParticleSystem.Play();
                 audioManager.batsFlying.Play();
@@ -171,12 +173,15 @@ public class SequenceManager : MonoBehaviour
                 cameraManager.Shake(3.5f, 1, 50);
                 environmentManager.ChangeFogIntensityOverTime(1, 1f);
                 environmentManager.ChangeFogColor(1, 0, 0, 0);
+                
                 GameObject dracula = Instantiate(draculaPrefab, new Vector3(-183, -62, 70), Quaternion.identity);
                 dracula.name = "dracula";
                 dracula.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>(), false);
+                dracula.GetComponent<DraculaBossBehaviour>().PlaceBossBar();
                 dracula.GetComponent<Animator>().SetBool("phase3", true);
                 batsParticleSystem = GameObject.Find("batParticles").GetComponent<ParticleSystem>();
                 batsParticleSystem.Stop();
+                dracula.GetComponent<DraculaBossBehaviour>().EnableOrbParticles();
                 yield return new WaitForSeconds(0.5f);
                 audioManager.countDraculaEndYou.Play();
                 audioManager.Level1Music.volume = 0.25f;
