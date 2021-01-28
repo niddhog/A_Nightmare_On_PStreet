@@ -33,6 +33,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource countDracula01;
     public AudioSource countDraculaEndYou;
     public AudioSource countDraculaTruePower;
+    public AudioSource draculaTakesDamage;
 
     
     public void Awake()
@@ -62,7 +63,8 @@ public class AudioManager : MonoBehaviour
         move.volume = 0.75f;
         spinAmbient.volume = 0.75f;
         Level1Music.volume = 0.5f;
-        countDracula01.volume = 1.5f;
+        countDracula01.volume = 0.5f;
+        draculaTakesDamage.volume = 1f;
 }
 
 

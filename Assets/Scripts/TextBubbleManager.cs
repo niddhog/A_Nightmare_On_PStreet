@@ -17,7 +17,6 @@ public class TextBubbleManager : MonoBehaviour
 
     public void RemoveBubble(GameObject bubble)
     {
-        Debug.Log("Gib");
         bubble.GetComponent<Animator>().SetBool("Disappears", true);
     }
 
