@@ -17,6 +17,7 @@ public class SequenceManager : MonoBehaviour
     private CameraController cameraManager;
     private EnemySpawnScript enemySpawnManager;
     private TextBubbleManager textBubbleManager;
+    private EnvironmentManager environmentManager;
 
     private void Awake()
     {
@@ -26,6 +27,7 @@ public class SequenceManager : MonoBehaviour
         cameraManager = GameObject.Find("Main Camera").GetComponent<CameraController>();
         enemySpawnManager = GameObject.Find("GameHandler").GetComponent<EnemySpawnScript>();
         textBubbleManager = GameObject.Find("GameHandler").GetComponent<TextBubbleManager>();
+        environmentManager = GameObject.Find("GameHandler").GetComponent<EnvironmentManager>();
     }
 
     public IEnumerator StartSequence(int level, int phase)
@@ -36,6 +38,7 @@ public class SequenceManager : MonoBehaviour
         {
             if (phase == 1)
             {
+                environmentManager.ChangeFogIntensityOverTime(2, 1);
                 audioManager.zombies.Stop();
                 audioManager.FadeIn(audioManager.sirene, 0.25f);
                 yield return new WaitForSeconds(0.25f);
@@ -83,6 +86,7 @@ public class SequenceManager : MonoBehaviour
                 audioManager.darkMagic01.Play();
                 audioManager.FadeIn(audioManager.Level1Music, 1);
 
+                environmentManager.ChangeFogColor(1, 181, 13, 13);
                 GameObject dracula = Instantiate(draculaPrefab, new Vector3(-183, -62, 70), Quaternion.identity);
                 dracula.name = "dracula";
                 dracula.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>(), false);
@@ -93,13 +97,15 @@ public class SequenceManager : MonoBehaviour
                 batsParticleSystem.Play();
                 audioManager.batsFlying.Play();
                 yield return new WaitForSeconds(1.7f);
-                batsParticleSystem.Stop();
-                audioManager.batsFlying.Stop();
                 yield return new WaitForSeconds(1);
                 textBubbleManager.DisplayBubble(textBubbleManager.fireBubblePrefab, new Vector3(31.9f, -22.5f, 100),2);
                 yield return new WaitForSeconds(0.5f);
                 enemySpawnManager.DraculaSpawnBat();
                 yield return new WaitForSeconds(0.2f);
+                batsParticleSystem.Stop();
+                audioManager.batsFlying.Stop();
+                environmentManager.ChangeFogIntensityOverTime(1, 0.5f);
+                environmentManager.ChangeFogColor(1, 255, 255, 255);
             }
 
             else if (phase == 2)
@@ -163,6 +169,8 @@ public class SequenceManager : MonoBehaviour
                 audioManager.darkMagic01.Play();
 
                 cameraManager.Shake(3.5f, 1, 50);
+                environmentManager.ChangeFogIntensityOverTime(1, 1f);
+                environmentManager.ChangeFogColor(1, 0, 0, 0);
                 GameObject dracula = Instantiate(draculaPrefab, new Vector3(-183, -62, 70), Quaternion.identity);
                 dracula.name = "dracula";
                 dracula.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>(), false);
@@ -173,6 +181,8 @@ public class SequenceManager : MonoBehaviour
                 audioManager.countDraculaEndYou.Play();
                 audioManager.Level1Music.volume = 0.25f;
                 yield return new WaitForSeconds(3f);
+                environmentManager.ChangeFogIntensityOverTime(1, 0.5f);
+                environmentManager.ChangeFogColor(1, 181, 13, 13);
                 textBubbleManager.DisplayBubble(textBubbleManager.fireBubblePrefab, new Vector3(31.9f, -22.5f, 100), 2);
                 dracula.GetComponent<DraculaBossBehaviour>().StartDraculaBossFight();
                 audioManager.IncreaseVolumeOverTime(audioManager.Level1Music, 1, 0.75f);
