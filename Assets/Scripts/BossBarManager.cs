@@ -39,11 +39,17 @@ public class BossBarManager : MonoBehaviour
     {
         health.ReduceHealth(value);
     }
+
+    public void SetHealthMax(int value)
+    {
+        health.setMaxHealth(value);
+    }
 }
 
 public class Health
 {
-    public const int HEALTH_MAX = 100;
+    //public const int HEALTH_MAX = 100;
+    public int health_max = 100;
 
     private float healthAmount;
     private float healthRegenAmount;
@@ -51,14 +57,14 @@ public class Health
     public Health()
     {
         healthAmount = 0;
-        healthRegenAmount = 25f;
+        healthRegenAmount = 30f;
     }
 
     public void Update()
     {
         healthAmount += healthRegenAmount * Time.deltaTime;
-        healthAmount = Mathf.Clamp(healthAmount, 0f, HEALTH_MAX);
-        if(healthAmount == HEALTH_MAX)
+        healthAmount = Mathf.Clamp(healthAmount, 0f, health_max);
+        if(healthAmount == health_max)
         {
             healthRegenAmount = 0;
         }
@@ -76,12 +82,17 @@ public class Health
 
     public float GetHealthNormalized()
     {
-        return healthAmount / HEALTH_MAX;
+        return healthAmount / health_max;
     }
 
 
     public void SetRegen(float value)
     {
         healthRegenAmount = value;
+    }
+
+    public void setMaxHealth(int value)
+    {
+        health_max = value;
     }
 }
