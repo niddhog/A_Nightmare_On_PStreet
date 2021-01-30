@@ -45,14 +45,13 @@ public class LevelBalancing : MonoBehaviour
             if(levelManager.GetPhase() == 1)
             {
                 zombieAmount = 1;
-                batsAmount = 0;
 
                 zombieSRate = 0.5f;
             }
             else if (levelManager.GetPhase() == 2)
             {
-                zombieAmount = 1;
-                batsAmount = 1;
+                zombieAmount = 7;
+                batsAmount = 3;
 
                 zombieSRate = 0.75f;
                 batsSRate = 1;
