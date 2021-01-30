@@ -71,7 +71,7 @@ public class LevelBalancing : MonoBehaviour
                 batsAmount = 9000;
 
                 zombieSRate = 0;
-                batsSRate = 2;
+                batsSRate = 10;
             }
         }
         else if (levelManager.GetLevel() == 2)

@@ -168,10 +168,17 @@ public class AmmoHandler : MonoBehaviour
         while (i < magazinSize)
         {
             bulletQueue.Add(Instantiate(ammoUI, GameObject.Find("Magazin").GetComponent<RectTransform>().position, Quaternion.identity));
-            bulletQueue[i].name = "Bullet" + i.ToString();
-            bulletQueue[i].transform.SetParent(GameObject.Find("Magazin").transform);
-            bulletQueue[i].GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
-            bulletQueue[i].GetComponent<RectTransform>().localPosition = new Vector3(x, 0, -3);
+            try
+            {
+                bulletQueue[i].name = "Bullet" + i.ToString();
+                bulletQueue[i].transform.SetParent(GameObject.Find("Magazin").transform);
+                bulletQueue[i].GetComponent<RectTransform>().localScale = new Vector3(1, 1, 1);
+                bulletQueue[i].GetComponent<RectTransform>().localPosition = new Vector3(x, 0, -3);
+            }
+            catch(System.IndexOutOfRangeException ex)
+            {
+                Debug.Log(ex);
+            }
             x += 0.07f;
             i++;
             yield return new WaitForSeconds(0.1f - PlayerStats.reloadSpeed);

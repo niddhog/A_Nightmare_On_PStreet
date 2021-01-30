@@ -69,7 +69,12 @@ public class EnemySpawnScript : MonoBehaviour
 
     public void DraculaSpawnBat()
     {
-        Vector3 spawnPoint = new Vector3(Random.Range(-153f, -100f), Random.Range(-10,10), -2);
+        Vector3 draculaPosition = GameObject.Find("dracula").transform.position;
+        Vector3 spawnTarget = new Vector3(0, Random.Range(draculaPosition.y-20,draculaPosition.y+20), 0);
+        spawnTarget.y = Mathf.Clamp(spawnTarget.y,-100,100);
+        spawnTarget.x = Random.Range(draculaPosition.x - 10, draculaPosition.x + 10);
+
+        Vector3 spawnPoint = new Vector3(spawnTarget.x, spawnTarget.y, -41);
         GameObject bat = Instantiate(bats, spawnPoint, Quaternion.identity);
         bat.name = "b";
         bat.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>());
@@ -124,7 +129,7 @@ public class EnemySpawnScript : MonoBehaviour
             }
             else if (levelManager.GetPhase() == 2)
             {
-                Vector3 spawnPoint = new Vector3(Random.Range(-153f, -100f), Random.Range(-100f, 100f), -2);
+                Vector3 spawnPoint = new Vector3(Random.Range(-153f, -100f), Random.Range(-100f, 100f), -41);
                 GameObject bat = Instantiate(bats, spawnPoint, Quaternion.identity);
                 bat.name = "b";
                 bat.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>());
@@ -133,7 +138,7 @@ public class EnemySpawnScript : MonoBehaviour
             }
             else if (levelManager.GetPhase() == 3)
             {
-                Vector3 spawnPoint = new Vector3(-153f, Random.Range(-100f, 100f), -2);
+                Vector3 spawnPoint = new Vector3(-153f, Random.Range(-100f, 100f), -41);
                 GameObject bat = Instantiate(bats, spawnPoint, Quaternion.identity);
                 bat.name = "b";
                 bat.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>());
@@ -142,7 +147,7 @@ public class EnemySpawnScript : MonoBehaviour
             }
             else if (levelManager.GetPhase() == 4)
             {
-                Vector3 spawnPoint = new Vector3(-153f, Random.Range(-100f, 100f), -2);
+                Vector3 spawnPoint = new Vector3(-153f, Random.Range(-100f, 100f), -41);
                 GameObject bat = Instantiate(bats, spawnPoint, Quaternion.identity);
                 bat.name = "b";
                 bat.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>());

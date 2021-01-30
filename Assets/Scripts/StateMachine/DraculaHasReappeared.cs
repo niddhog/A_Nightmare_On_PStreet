@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DraculaSpawnsBats : StateMachineBehaviour
+public class DraculaHasReappeared : StateMachineBehaviour
 {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -33,9 +33,8 @@ public class DraculaSpawnsBats : StateMachineBehaviour
     //{
     //    // Implement code that sets up animation IK (inverse kinematics)
     //}
-
     public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        GameObject.Find("dracula").GetComponent<DraculaBossBehaviour>().SpawnBatsMove();
+        GameObject.Find("dracula").GetComponent<Animator>().SetBool("reappear",false);
     }
 }

@@ -69,19 +69,19 @@ public class SequenceManager : MonoBehaviour
                 GameObject.Find("sireneLight").GetComponent<Animator>().SetBool("finish", true);
 
                 yield return new WaitForSeconds(1f);
-                GameObject magic1 = Instantiate(darkMagicPrefab, new Vector3(-180,-45,70), Quaternion.identity);
+                GameObject magic1 = Instantiate(darkMagicPrefab, new Vector3(-180,-45,69), Quaternion.identity);
                 magic1.name = "magic1";
                 magic1.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>(),false);
                 audioManager.darkMagic01.Play();
 
                 yield return new WaitForSeconds(0.5f);
-                GameObject magic2 = Instantiate(darkMagicPrefab, new Vector3(-171, -37, 70), Quaternion.identity);
+                GameObject magic2 = Instantiate(darkMagicPrefab, new Vector3(-171, -37, 69), Quaternion.identity);
                 magic2.name = "magic2";
                 magic2.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>(), false);
                 audioManager.darkMagic01.Play();
 
                 yield return new WaitForSeconds(0.5f);
-                GameObject magic3 = Instantiate(darkMagicPrefab, new Vector3(-183, -62, 70), Quaternion.identity);
+                GameObject magic3 = Instantiate(darkMagicPrefab, new Vector3(-183, -62, 69), Quaternion.identity);
                 magic3.name = "magic2";
                 magic3.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>(), false);
                 audioManager.darkMagic01.Play();
@@ -96,6 +96,9 @@ public class SequenceManager : MonoBehaviour
                 batsParticleSystem.Stop();
                 
                 yield return new WaitForSeconds(0.5f);
+
+                ParticleSystem.MainModule psMain = batsParticleSystem.main;
+                psMain.startLifetime = 25f;
                 batsParticleSystem.Play();
                 audioManager.batsFlying.Play();
                 yield return new WaitForSeconds(1.7f);
@@ -106,6 +109,7 @@ public class SequenceManager : MonoBehaviour
                 yield return new WaitForSeconds(0.2f);
                 batsParticleSystem.Stop();
                 audioManager.batsFlying.Stop();
+                psMain.startLifetime = 13f;
                 environmentManager.ChangeFogIntensityOverTime(1, 0.5f);
                 environmentManager.ChangeFogColor(1, 255, 255, 255);
             }
@@ -113,19 +117,19 @@ public class SequenceManager : MonoBehaviour
             else if (phase == 2)
             {
                 audioManager.zombies.Stop();
-                GameObject magic1 = Instantiate(darkMagicPrefab, new Vector3(-180, -45, 70), Quaternion.identity);
+                GameObject magic1 = Instantiate(darkMagicPrefab, new Vector3(-180, -45, 69), Quaternion.identity);
                 magic1.name = "magic1";
                 magic1.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>(), false);
                 audioManager.darkMagic01.Play();
 
                 yield return new WaitForSeconds(0.5f);
-                GameObject magic2 = Instantiate(darkMagicPrefab, new Vector3(-171, -37, 70), Quaternion.identity);
+                GameObject magic2 = Instantiate(darkMagicPrefab, new Vector3(-171, -37, 69), Quaternion.identity);
                 magic2.name = "magic2";
                 magic2.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>(), false);
                 audioManager.darkMagic01.Play();
 
                 yield return new WaitForSeconds(0.5f);
-                GameObject magic3 = Instantiate(darkMagicPrefab, new Vector3(-183, -62, 70), Quaternion.identity);
+                GameObject magic3 = Instantiate(darkMagicPrefab, new Vector3(-183, -62, 69), Quaternion.identity);
                 magic3.name = "magic2";
                 magic3.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>(), false);
                 audioManager.darkMagic01.Play();
@@ -153,19 +157,19 @@ public class SequenceManager : MonoBehaviour
             else if (phase == 3)
             {
                 audioManager.zombies.Stop();
-                GameObject magic1 = Instantiate(darkMagicPrefab, new Vector3(-180, -45, 70), Quaternion.identity);
+                GameObject magic1 = Instantiate(darkMagicPrefab, new Vector3(-180, -45, 69), Quaternion.identity);
                 magic1.name = "magic1";
                 magic1.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>(), false);
                 audioManager.darkMagic01.Play();
 
                 yield return new WaitForSeconds(0.5f);
-                GameObject magic2 = Instantiate(darkMagicPrefab, new Vector3(-171, -37, 70), Quaternion.identity);
+                GameObject magic2 = Instantiate(darkMagicPrefab, new Vector3(-171, -37, 69), Quaternion.identity);
                 magic2.name = "magic2";
                 magic2.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>(), false);
                 audioManager.darkMagic01.Play();
 
                 yield return new WaitForSeconds(0.5f);
-                GameObject magic3 = Instantiate(darkMagicPrefab, new Vector3(-183, -62, 70), Quaternion.identity);
+                GameObject magic3 = Instantiate(darkMagicPrefab, new Vector3(-183, -62, 69), Quaternion.identity);
                 magic3.name = "magic2";
                 magic3.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>(), false);
                 audioManager.darkMagic01.Play();

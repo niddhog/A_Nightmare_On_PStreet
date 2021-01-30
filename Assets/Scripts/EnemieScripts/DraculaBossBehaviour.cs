@@ -5,6 +5,7 @@ using UnityEngine;
 public class DraculaBossBehaviour : MonoBehaviour
 {
     private int speed;
+    private int maxHealth;
     private bool startBoss;
     private bool spawnBats;
     private bool beams;
@@ -28,7 +29,8 @@ public class DraculaBossBehaviour : MonoBehaviour
 
     void Awake()
     {
-        speed = 50;
+        maxHealth = 40;
+        speed = 30;
         startBoss = false;
         spawnBats = false;
         beams = false;
@@ -75,7 +77,6 @@ public class DraculaBossBehaviour : MonoBehaviour
                 audioManager.batsFlying.Stop();
                 batsParticleSystem.transform.position -= new Vector3(20f, 0f, 0f);
                 transform.GetComponent<Animator>().SetBool("beam", true);
-                transform.GetComponent<BoxCollider2D>().enabled = false;
                 spawnCount = 0;
                 spawnBats = false;
             }
@@ -83,7 +84,7 @@ public class DraculaBossBehaviour : MonoBehaviour
 
         if (beams)
         {
-            if(transform.position.x >= targetLocation.x)
+            if (transform.position.x >= targetLocation.x)
             {
                 transform.position -= new Vector3(speed * Time.deltaTime, 0, 0);
             }
@@ -116,7 +117,7 @@ public class DraculaBossBehaviour : MonoBehaviour
 
     public void SpawnBatsMove()
     {
-        transform.GetComponent<BoxCollider2D>().enabled = true;
+        draculaHitBox.enabled = true;
         spawnBats = true;
         batsParticleSystem.transform.position += new Vector3(20f, 0f, 0f);
         batsParticleSystem.Play();
@@ -126,7 +127,15 @@ public class DraculaBossBehaviour : MonoBehaviour
 
     public void BeamMove()
     {
-        targetLocation = new Vector3(Random.Range(-153f, -100f), Random.Range(-100f, 100f), 0);
+        bool legitLoction = false;
+        while (!legitLoction)
+        {
+            targetLocation = new Vector3(Random.Range(-153f, -100f), Random.Range(-100f, 100f), 0);
+            if(targetLocation.y > transform.position.x + 75)
+            {
+                legitLoction = true;
+            }
+        }
         beamBatParticles.Play();
         StartCoroutine(BeamBatsTimer());
     }
@@ -134,7 +143,8 @@ public class DraculaBossBehaviour : MonoBehaviour
     public void StartDraculaBossFight()
     {
         startBoss = true;
-        bossBarManager = GameObject.Find("bossBar").GetComponent<BossBarManager>();      
+        bossBarManager = GameObject.Find("bossBar").GetComponent<BossBarManager>();
+        bossBarManager.SetHealthMax(maxHealth);
     }
 
 
@@ -159,6 +169,7 @@ public class DraculaBossBehaviour : MonoBehaviour
     {
         if (collision.gameObject.name == "Bullet")
         {
+                        audioManager.hit01.Play();
             blood.SpawnBlood(collision.gameObject);
             Destroy(collision.gameObject);
             bossBarManager.Damage(PlayerStats.bulletPower);
@@ -202,6 +213,7 @@ public class DraculaBossBehaviour : MonoBehaviour
     {
         yield return new WaitForSeconds(0.3f);
         beamBatParticles.Stop();
+        draculaHitBox.enabled = false;
         beams = true;
     }
 
