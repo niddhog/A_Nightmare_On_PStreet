@@ -122,47 +122,15 @@ public class PlayerController : MonoBehaviour
     {
         while (true)
         {
-            yield return new WaitForSeconds(0.5f);
             if (aboart)
             {
                 break;
             }
-            audioManager.mgRunning.Play();
-            yield return new WaitForSeconds(0.5f);
-            if (aboart)
+            if (!audioManager.mgRunning.isPlaying)
             {
-                break;
+                audioManager.mgRunning.Play();
             }
-            yield return new WaitForSeconds(0.5f);
-            if (aboart)
-            {
-                break;
-            }
-            yield return new WaitForSeconds(0.5f);
-            if (aboart)
-            {
-                break;
-            }
-            yield return new WaitForSeconds(0.5f);
-            if (aboart)
-            {
-                break;
-            }
-            yield return new WaitForSeconds(0.5f);
-            if (aboart)
-            {
-                break;
-            }
-            yield return new WaitForSeconds(0.5f);
-            if (aboart)
-            {
-                break;
-            }
-            yield return new WaitForSeconds(0.5f);
-            if (aboart)
-            {
-                break;
-            }
+            yield return new WaitForSeconds(0.01f);
         }
     }
 
@@ -171,7 +139,7 @@ public class PlayerController : MonoBehaviour
     {
         if (warmUp)
         {
-            yield return new WaitForSeconds(0.55f);
+            yield return new WaitForSeconds(PlayerStats.warmUpTime);
             warmUp = false;
         }
         if (AmmoHandler.CheckIfEmpty())
@@ -191,6 +159,7 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(cameraController.ShakeCamera());
             AmmoHandler.PopBullet();
             audioManager.normalShot.Play();
+            GameObject.Find("Player_s").GetComponent<Animator>().SetBool("fire", true);
         }
         yield return new WaitForSeconds(1f - PlayerStats.firingSpeed);
         bulletBlock = false;

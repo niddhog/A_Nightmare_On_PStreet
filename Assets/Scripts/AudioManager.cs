@@ -50,7 +50,7 @@ public class AudioManager : MonoBehaviour
         hit02.volume = 0.25f;
         hit03.volume = 0.5f;
         zombies.volume = 0.75f;
-        wireDamage.volume = 0.5f;
+        wireDamage.volume = 0.3f;
         gameOverZombie.volume = 0.5f;
         gameOverMusic.volume = 0.5f;
         sirene.volume = 0.75f;

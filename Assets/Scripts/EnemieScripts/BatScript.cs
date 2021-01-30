@@ -9,19 +9,24 @@ public class BatScript : MonoBehaviour
     private Animator animator;
     private bool wait;
     private bool attackInMotion;
-    private int health;
+    private float health;
     private float speed;
     private float attackPower;
     private float attackSpeed;
     private AudioManager audioManager;
     private LevelManager levelManager;
+    private NumberManager numberManager;
     private bool dead;
     private float y_target;
+    private float Stagerresi;
+    private bool staggered;
 
 
     void Start()
     {
-        health = 1;
+        staggered = false;
+        health = 100;
+        Stagerresi = 100;
         attackSpeed = 1.6f; //Range [1,2]
         speed = Random.Range(20f, 50f);
         attackPower = Random.Range(0.5f, 1);
@@ -34,6 +39,7 @@ public class BatScript : MonoBehaviour
         animator = gameObject.GetComponent<Animator>();
         blood = GameObject.Find("GameHandler").GetComponent<BloodManager>();
         damage = GameObject.Find("GameHandler").GetComponent<DamageManager>();
+        numberManager = GameObject.Find("GameHandler").GetComponent<NumberManager>();
         y_target = Random.Range(-100f,100f);
     }
 
@@ -92,10 +98,18 @@ public class BatScript : MonoBehaviour
         }
         else if (collision.gameObject.name == "Bullet")
         {
+            if (!staggered)
+            {
+                StartCoroutine(Staggering());
+                staggered = true;
+            }
             audioManager.hit01.Play();
             blood.SpawnBlood(collision.gameObject);
             Destroy(collision.gameObject);
-            health -= PlayerStats.bulletPower;
+            float incomingDamage = PlayerStats.GetBulletPower();
+            incomingDamage = Mathf.Round(incomingDamage);
+            numberManager.SpawnDamageNumber(transform.position, incomingDamage);
+            health -= incomingDamage;
         }
     }
 
@@ -167,5 +181,14 @@ public class BatScript : MonoBehaviour
         PlayerStats.AdjustHealth(-attackPower);
         yield return new WaitForSeconds(2 - attackSpeed);
         attackInMotion = false;
+    }
+
+    private IEnumerator Staggering()
+    {
+        float staggerDelta = PlayerStats.staggerPower - Stagerresi;
+        speed /= Mathf.Clamp(staggerDelta, 1, 100);
+        yield return new WaitForSeconds(Mathf.Clamp(PlayerStats.staggerDuration - Stagerresi,0,100));
+        speed *= Mathf.Clamp(staggerDelta, 1, 100); ;
+        staggered = false;
     }
 }

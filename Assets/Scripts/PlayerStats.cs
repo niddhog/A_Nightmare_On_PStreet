@@ -11,7 +11,10 @@ public class PlayerStats : MonoBehaviour
     public static float bulletAccuracy; //min: 0.8 max: 1
     public static int magazinSize; //thresholds: 19, 34, 44, 56, 67, 77, 92
     public static float health;
-    public static int bulletPower; //How much damage a projectile does
+    public static float bulletPower; //How much damage a projectile does //Important, call SetBulletPower Function to set it
+    public static float warmUpTime; //how quickli gun is ready to fire default 0.55
+    public static float staggerPower; //slows down enemy by this amount
+    public static float staggerDuration; //slows down enemy by this extra time
     public static bool GAMEOVER;
 
     public void Awake()
@@ -23,7 +26,10 @@ public class PlayerStats : MonoBehaviour
         bulletAccuracy = 1;
         magazinSize = 92;
         health = 100f;
-        bulletPower = 1;
+        bulletPower = 10;
+        warmUpTime = 0.55f;
+        staggerPower = 5f;
+        staggerDuration = 0.25f;
         GAMEOVER = false;
     }
 
@@ -70,5 +76,13 @@ public class PlayerStats : MonoBehaviour
         GameObject healthBar = GameObject.Find("HealthBar");
         Vector3 healthVector = new Vector3(98f / 100f * health, healthBar.transform.localScale.y, healthBar.transform.localScale.z);
         healthBar.transform.localScale = healthVector;
+    }
+
+
+    public static float GetBulletPower()
+    {
+        float definitPower;
+        definitPower = Random.Range(bulletPower - (bulletPower * 0.25f), bulletPower + (bulletPower * 0.25f));
+        return definitPower;
     }
 }

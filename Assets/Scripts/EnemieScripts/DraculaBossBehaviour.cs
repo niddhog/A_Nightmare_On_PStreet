@@ -18,6 +18,7 @@ public class DraculaBossBehaviour : MonoBehaviour
     private ParticleSystem orbParticles;
     private ParticleSystem beamBatParticles;
     private EnemySpawnScript enemySpawnManager;
+    private NumberManager numberManager;
     float count;
     float spawnCount;
     private ParticleSystem batsParticleSystem;
@@ -44,6 +45,7 @@ public class DraculaBossBehaviour : MonoBehaviour
         orbParticles = GameObject.Find("orbParticles").GetComponent<ParticleSystem>();
         beamBatParticles = GameObject.Find("BeamBats").GetComponent<ParticleSystem>();
         batsParticleSystem = GameObject.Find("batParticles").GetComponent<ParticleSystem>();
+        numberManager = GameObject.Find("GameHandler").GetComponent<NumberManager>();
         orbParticles.Stop();
         beamBatParticles.Stop();
         count = 0;
@@ -160,7 +162,7 @@ public class DraculaBossBehaviour : MonoBehaviour
         bossBar.name = "bossBar";
         bossBar.transform.SetParent(GameObject.Find("Canvas").GetComponent<Transform>(), false);
 
-        GameObject bossTag = Instantiate(bossTagPrefab, new Vector3(-469, 467, -6), Quaternion.identity);
+        GameObject bossTag = Instantiate(bossTagPrefab, new Vector3(-479, 467, -6), Quaternion.identity);
         bossTag.name = "bossTag";
         bossTag.transform.SetParent(GameObject.Find("Canvas").GetComponent<Transform>(), false);
     }
@@ -169,10 +171,16 @@ public class DraculaBossBehaviour : MonoBehaviour
     {
         if (collision.gameObject.name == "Bullet")
         {
-                        audioManager.hit01.Play();
+            audioManager.hit01.Play();
             blood.SpawnBlood(collision.gameObject);
             Destroy(collision.gameObject);
-            bossBarManager.Damage(PlayerStats.bulletPower);
+            float incomingDamage = PlayerStats.GetBulletPower();
+            incomingDamage = Mathf.Round(incomingDamage);
+            numberManager.SpawnDamageNumber(transform.position, incomingDamage);
+            bossBarManager.Damage(incomingDamage);
+
+
+            bossBarManager.Damage(PlayerStats.GetBulletPower());
             if (!isBlinking)
             {
                 audioManager.draculaTakesDamage.Play();
