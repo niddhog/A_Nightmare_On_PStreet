@@ -21,10 +21,10 @@ public class PlayerStats : MonoBehaviour
     {
         rotationSpeed = 2;
         reloadSpeed = 0.09f;
-        bulletSpeed = 700;
-        firingSpeed = 0.8f;
-        bulletAccuracy = 1;
-        magazinSize = 92;
+        bulletSpeed = 300;
+        firingSpeed = 0.5f;
+        bulletAccuracy = 1f;
+        magazinSize = 19;
         health = 100f;
         bulletPower = 10;
         warmUpTime = 0.55f;

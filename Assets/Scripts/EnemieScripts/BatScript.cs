@@ -25,7 +25,7 @@ public class BatScript : MonoBehaviour
     void Start()
     {
         staggered = false;
-        health = 100;
+        health = 5;
         Stagerresi = 100;
         attackSpeed = 1.6f; //Range [1,2]
         speed = Random.Range(20f, 50f);
