@@ -8,6 +8,7 @@ public class LevelManager : MonoBehaviour
     private int level;
     private int phase;
     private bool sequenceOngoing;
+    private bool bossOneDefeated;
 
     public GameObject heroPrefab;
     public GameObject smallSkullPrefab;
@@ -77,6 +78,12 @@ public class LevelManager : MonoBehaviour
             enemyCounter = 0;
         }
         MoveHeroIcon();
+    }
+
+
+    public void SetEnemyCount(int value)
+    {
+        enemyCounter = value;
     }
 
 
@@ -199,34 +206,6 @@ public class LevelManager : MonoBehaviour
     }
 
 
-    /*public float[] GetSpawnRate()
-    {
-        float[] spawnArray = new float[] {0,0};
-        if(level == 1)
-        {
-            if(phase == 1)
-            {
-                spawnArray[0] = 2f;
-                spawnArray[1] = 0f;
-            }
-            else if (phase == 2)
-            {
-                spawnArray[0] = 2f;
-                spawnArray[1] = 1f;
-            }
-            else if (phase == 3)
-            {
-
-            }
-            return spawnArray;
-        }
-        else
-        {
-            return spawnArray;
-        }
-    }*/
-
-
     public void StartSequence()
     {
         sequenceOngoing = true;
@@ -312,8 +291,13 @@ public class LevelManager : MonoBehaviour
                     yield return new WaitForSeconds(0.1f);
                 }
                 spawnScript.ResetSpawnCounter();
-                phase = 4;
+                phase = 5;
             }
+            yield return new WaitForSeconds(0.1f);
+        }
+        while (phase == 5) //Outro Dracula
+        {
+
             yield return new WaitForSeconds(0.1f);
         }
     }

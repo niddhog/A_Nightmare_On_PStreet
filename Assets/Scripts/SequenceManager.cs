@@ -117,6 +117,8 @@ public class SequenceManager : MonoBehaviour
             else if (phase == 2)
             {
                 audioManager.zombies.Stop();
+                environmentManager.ChangeFogIntensityOverTime(2, 1);
+                environmentManager.ChangeFogColor(1, 181, 13, 13);
                 GameObject magic1 = Instantiate(darkMagicPrefab, new Vector3(-180, -45, 69), Quaternion.identity);
                 magic1.name = "magic1";
                 magic1.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>(), false);
@@ -152,6 +154,8 @@ public class SequenceManager : MonoBehaviour
                     enemySpawnManager.DraculaSpawnBat();
                     yield return new WaitForSeconds(0.2f);
                 }
+                environmentManager.ChangeFogIntensityOverTime(1, 0.5f);
+                environmentManager.ChangeFogColor(1, 255, 255, 255);
             }
 
             else if (phase == 3)
@@ -182,6 +186,7 @@ public class SequenceManager : MonoBehaviour
                 dracula.name = "dracula";
                 dracula.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>(), false);
                 dracula.GetComponent<DraculaBossBehaviour>().PlaceBossBar();
+                dracula.GetComponent<DraculaBossBehaviour>().SetLifeBar();
                 dracula.GetComponent<Animator>().SetBool("phase3", true);
                 batsParticleSystem = GameObject.Find("batParticles").GetComponent<ParticleSystem>();
                 batsParticleSystem.Stop();
@@ -199,7 +204,8 @@ public class SequenceManager : MonoBehaviour
 
             else if (phase == 4) //Boss has been defeated
             {
-
+                Debug.Log("OutroDracula");
+                yield return new WaitForSeconds(30f);
             }
         }
         yield return new WaitForSeconds(0.2f);

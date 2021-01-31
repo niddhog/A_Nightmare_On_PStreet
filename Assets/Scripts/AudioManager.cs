@@ -34,6 +34,7 @@ public class AudioManager : MonoBehaviour
     public AudioSource countDraculaEndYou;
     public AudioSource countDraculaTruePower;
     public AudioSource draculaTakesDamage;
+    public AudioSource draculaDies;
 
     
     public void Awake()
