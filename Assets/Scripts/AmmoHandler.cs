@@ -81,9 +81,9 @@ public class AmmoHandler : MonoBehaviour
 
     void Reload()
     {
-        if(GameObject.Find("Player_s").GetComponent<PlayerController>().shooting == true || pause)
+        if(pause)
         {
-
+            
         }
         else
         {
@@ -105,6 +105,7 @@ public class AmmoHandler : MonoBehaviour
             }
             else
             {
+                GameObject.Find("Player_s").GetComponent<PlayerController>().shooting = false;
                 StartCoroutine(reloadingNumerator);
                 StartCoroutine(fillMagazin);
                 reloadingNumerator = Reloading();

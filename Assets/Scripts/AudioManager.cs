@@ -43,7 +43,7 @@ public class AudioManager : MonoBehaviour
         mgStart.volume = 0.25f;
         mgEnd.volume = 0.25f;
         normalShot.volume = 0.25f;
-        emptyShot.volume = 0.25f;
+        emptyShot.volume = 0.75f;
         gReload.volume = 0.5f;
         gFull.volume = 0.5f;
         mLoadingDone.volume = 0.75f;
