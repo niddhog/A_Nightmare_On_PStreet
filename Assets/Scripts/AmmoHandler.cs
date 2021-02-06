@@ -105,7 +105,6 @@ public class AmmoHandler : MonoBehaviour
             }
             else
             {
-                GameObject.Find("Player_s").GetComponent<PlayerController>().shooting = false;
                 StartCoroutine(reloadingNumerator);
                 StartCoroutine(fillMagazin);
                 reloadingNumerator = Reloading();
@@ -186,6 +185,7 @@ public class AmmoHandler : MonoBehaviour
         }
         audioManager.gReload.Stop();
         audioManager.mLoadingDone.Play();
+        
         isReloading = false;
     }
 
