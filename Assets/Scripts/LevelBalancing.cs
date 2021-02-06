@@ -46,7 +46,7 @@ public class LevelBalancing : MonoBehaviour
             {
                 zombieAmount = 10;
 
-                zombieSRate = 10f;
+                zombieSRate = 1.5f;
             }
             else if (levelManager.GetPhase() == 2)
             {
