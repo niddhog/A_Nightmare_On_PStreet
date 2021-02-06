@@ -23,7 +23,7 @@ public class PlayerStats : MonoBehaviour
         reloadSpeed = 0.09f;
         bulletSpeed = 300;
         firingSpeed = 0.8f;
-        bulletAccuracy = 1f;
+        bulletAccuracy = 0.8f;
         magazinSize = 19;
         health = 100f;
         bulletPower = 10;

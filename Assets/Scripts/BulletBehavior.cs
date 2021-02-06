@@ -8,19 +8,12 @@ public class BulletBehavior : MonoBehaviour
     
     void Start()
     {
+        Physics2D.IgnoreCollision(transform.GetComponent<BoxCollider2D>(), GameObject.Find("Barbwire").GetComponent<PolygonCollider2D>());
         moveDir = FaceMouse.GetDirection(GameObject.Find("BulletTarget").GetComponent<Transform>().position, transform.position).normalized;
         moveDir.z = 0f;
-        if(Random.Range(0,2) == 0)
-        {
-            moveDir.y += Random.Range(0.0f, 1.0f - PlayerStats.bulletAccuracy);
-        }
-        else
-        {
-            moveDir.y -= Random.Range(0.0f, 1.0f - PlayerStats.bulletAccuracy);
-        }
+        moveDir.y += Random.Range(-(1.0f - PlayerStats.bulletAccuracy), 1.0f - PlayerStats.bulletAccuracy);
 
-        float angle = (Mathf.Atan2(moveDir.y, moveDir.x) * Mathf.Rad2Deg);
-        Debug.Log(angle);
+        float angle = (Mathf.Atan2(moveDir.y, moveDir.x) * Mathf.Rad2Deg); //Atan2 returns Radiants, we need to convert it to Degree
         Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, PlayerStats.rotationSpeed * Time.deltaTime);
         transform.eulerAngles = new Vector3(0, 0, angle);
