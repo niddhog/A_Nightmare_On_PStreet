@@ -6,11 +6,9 @@ public class EnemySpawnScript : MonoBehaviour
 {
     public GameObject zombie;
     public GameObject bats;
-
     private LevelManager levelManager;
     private bool zombiesMown;
     private AudioManager audioManager;
-    private int spawnCounter;
     private bool pause;
     private LevelBalancing levelBalancingManager;
 
@@ -26,7 +24,6 @@ public class EnemySpawnScript : MonoBehaviour
         levelManager = GameObject.Find("GameHandler").GetComponent<LevelManager>();
         zombiesMown = false;
         audioManager = GameObject.Find("GameHandler").GetComponent<AudioManager>();
-        spawnCounter = 0;
         zombieCount = 0;
         batCount = 0;
         pause = true;
@@ -75,44 +72,19 @@ public class EnemySpawnScript : MonoBehaviour
         spawnTarget.x = Random.Range(draculaPosition.x - 10, draculaPosition.x + 10);
 
         Vector3 spawnPoint = new Vector3(spawnTarget.x, spawnTarget.y, -41);
-        GameObject bat = Instantiate(bats, spawnPoint, Quaternion.identity);
-        bat.name = "b";
-        bat.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>());
-        bat.GetComponent<Animator>().SetBool("spawnEnemy", true);
-        batCount += 1;
+        GameObject b = Instantiation_CAE.Instantiation(bats, spawnPoint, Quaternion.identity, "b", "PrefabSink");
+        Instantiation_CAE.SetAnimatorBool(b, "spawnEnemy", true);
+        batCount++;
     }
 
     private IEnumerator ZombieSpawner()
     {
         if (levelManager.GetLevel() == 1 && zombieCount < levelBalancingManager.GetEnemyCountList()[0])
         {
-            if(levelManager.GetPhase() == 1)
-            {
-                Vector3 spawnPoint = new Vector3(Random.Range(-153f, -100f), Random.Range(-100f, 100f), -2);
-                GameObject z = Instantiate(zombie, spawnPoint, Quaternion.identity);
-                z.name = "z";
-                z.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>());
-                z.GetComponent<Animator>().SetBool("spawnEnemy", true);
-                zombieCount += 1;
-            }
-            else if (levelManager.GetPhase() == 2)
-            {
-                Vector3 spawnPoint = new Vector3(Random.Range(-153f, -100f), Random.Range(-100f, 100f), -2);
-                GameObject z = Instantiate(zombie, spawnPoint, Quaternion.identity);
-                z.name = "z";
-                z.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>());
-                z.GetComponent<Animator>().SetBool("spawnEnemy", true);
-                zombieCount += 1;
-            }
-            else if (levelManager.GetPhase() == 3)
-            {
-                Vector3 spawnPoint = new Vector3(Random.Range(-153f, -100f), Random.Range(-100f, 100f), -2);
-                GameObject z = Instantiate(zombie, spawnPoint, Quaternion.identity);
-                z.name = "z";
-                z.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>());
-                z.GetComponent<Animator>().SetBool("spawnEnemy", true);
-                zombieCount += 1;
-            }
+            Vector3 spawnPoint = new Vector3(Random.Range(-153f, -100f), Random.Range(-100f, 100f), -2);
+            GameObject z = Instantiation_CAE.Instantiation(zombie, spawnPoint, Quaternion.identity, "z", "PrefabSink");
+            Instantiation_CAE.SetAnimatorBool(z, "spawnEnemy", true);
+            zombieCount++;
         }
         yield return new WaitForSeconds(levelBalancingManager.GetEnemySpawnStats()[0]);
         zombieSpawning = false;
@@ -123,37 +95,10 @@ public class EnemySpawnScript : MonoBehaviour
     {
         if (levelManager.GetLevel() == 1 && batCount < levelBalancingManager.GetEnemyCountList()[1])
         {
-            if (levelManager.GetPhase() == 1)
-            {
-
-            }
-            else if (levelManager.GetPhase() == 2)
-            {
-                Vector3 spawnPoint = new Vector3(Random.Range(-153f, -100f), Random.Range(-100f, 100f), -41);
-                GameObject bat = Instantiate(bats, spawnPoint, Quaternion.identity);
-                bat.name = "b";
-                bat.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>());
-                bat.GetComponent<Animator>().SetBool("spawnEnemy", true);
-                batCount += 1;
-            }
-            else if (levelManager.GetPhase() == 3)
-            {
-                Vector3 spawnPoint = new Vector3(-153f, Random.Range(-100f, 100f), -41);
-                GameObject bat = Instantiate(bats, spawnPoint, Quaternion.identity);
-                bat.name = "b";
-                bat.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>());
-                bat.GetComponent<Animator>().SetBool("spawnEnemy", true);
-                batCount += 1;
-            }
-            else if (levelManager.GetPhase() == 4)
-            {
-                Vector3 spawnPoint = new Vector3(-153f, Random.Range(-100f, 100f), -41);
-                GameObject bat = Instantiate(bats, spawnPoint, Quaternion.identity);
-                bat.name = "b";
-                bat.transform.SetParent(GameObject.Find("PrefabSink").GetComponent<Transform>());
-                bat.GetComponent<Animator>().SetBool("spawnEnemy", true);
-                batCount += 1;
-            }
+            Vector3 spawnPoint = new Vector3(-153f, Random.Range(-100f, 100f), -41);
+            GameObject b = Instantiation_CAE.Instantiation(bats, spawnPoint, Quaternion.identity, "b", "PrefabSink");
+            Instantiation_CAE.SetAnimatorBool(b, "spawnEnemy", true);
+            batCount++;
         }
         yield return new WaitForSeconds(levelBalancingManager.GetEnemySpawnStats()[1]);
         batSpawning = false; ;
